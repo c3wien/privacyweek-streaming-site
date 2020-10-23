@@ -37,20 +37,7 @@
                   </div>
               </div>
           </div>
-          <div class="content">
-              <p>
-                  <strong>„Gegen dagegen ist dafür. Ein Vorschlag für eine schöne Welt für alle Menschen und was Hacker dazu beitragen können.“</strong><br /> by <strong>Christian Swertz</strong>
-              </p>
-Die Welt schöner zu machen ist nicht schwierig. Fünf Maßnahmen  genügen: <br />
-<br />
-1. Es wird kaum noch Kohle und Erdöl verbrannt.<br />
-2. Es werden kaum noch chemische Stoffe in die Umwelt eingebracht.<br />
-3. Die Grundversorgung aller Menschen mit materiellen Gütern ist sichergestellt.<br />
-4. Alle Menschen haben gleichen Zugang zu Gesundheit, Bildung und Recht.<br />
-5. Österreich ist ein Bundesstaat im Weltstaat.<br />
-<br />
-Die Umsetzung der Maßnahmen erfordert passende Systeme. Im Vortrag wird ein Vorschlag für Designprinzipien unterbreitet...
-          </div>
+        <CurrentlyPlaying />
       </div>
       <div class="card-footer">
           <div class="columns is-mobile">
