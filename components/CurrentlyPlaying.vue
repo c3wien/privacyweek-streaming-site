@@ -1,5 +1,7 @@
 <template>
   <div v-if="currentTalk.title" class="content">
+    <!-- test for i18n: -->
+    <!--     <h2>{{ $t("break") }}</h2> -->
     <strong>{{ currentTalk.title }}</strong>
     <em>{{ currentTalk.subtitle }}</em>
     <br />by
@@ -12,25 +14,25 @@
 </template>
 
 <script>
-import { isWithinInterval, addMinutes, addHours, addDays } from "date-fns";
+import { isWithinInterval, addMinutes, addHours, addDays } from 'date-fns';
 // import schedule from "../schedule.json";
 
 export default {
   data: function () {
     return {
       schedule: null,
-      intervalId: "",
+      intervalId: '',
       currentTalk: null,
       now: null,
     };
   },
   created: function () {
-    /** todo: instead of fetching directly read this from a local file that is 
+    /** todo: instead of fetching directly read this from a local file that is
      * kept up-to-date by server
      */
-    fetch("https://fahrplan.privacyweek.at/pw20/schedule/export/schedule.json")
-        .then(response => response.json())
-        .then(data => (this.schedule = data.schedule));
+    fetch('https://fahrplan.privacyweek.at/pw20/schedule/export/schedule.json')
+      .then((response) => response.json())
+      .then((data) => (this.schedule = data.schedule));
     this.updateInfo();
     this.intervalId = setInterval(() => {
       this.updateInfo();
@@ -73,7 +75,7 @@ export default {
      * returns object { hours: number, minutes: number}
      */
     splitDuration: function (duration) {
-      const split = duration.split(":");
+      const split = duration.split(':');
       return {
         hours: split[0],
         minutes: split[1],
@@ -95,12 +97,18 @@ export default {
       let talkFound = false;
       let talk;
       for (let day = 0; day < days.length; day++) {
-        const talksOfTheDay = days[day].rooms["Lecture Hall 1"];
-        const startFirstTalkOfTheDay = new Date(talksOfTheDay[0].date);
-        const endLastTalkOfTheDay = this.calculateEndTime(
-          new Date(talksOfTheDay[talksOfTheDay.length - 1].date),
-          talksOfTheDay[talksOfTheDay.length - 1].duration
-        );
+        const talksOfTheDay = days[day].rooms['Lecture Hall 1'];
+        const startFirstTalkOfTheDay =
+          talksOfTheDay && talksOfTheDay[0]
+            ? new Date(talksOfTheDay[0].date)
+            : null;
+        const endLastTalkOfTheDay =
+          talksOfTheDay && talksOfTheDay[talksOfTheDay.length - 1]
+            ? this.calculateEndTime(
+                new Date(talksOfTheDay[talksOfTheDay.length - 1].date),
+                talksOfTheDay[talksOfTheDay.length - 1].duration
+              )
+            : null;
         if (
           isWithinInterval(this.mockNow(), {
             start: startFirstTalkOfTheDay,
@@ -125,21 +133,21 @@ export default {
               })
             ) {
               // we got the right talk
-              console.log("talk found");
+              console.log('talk found');
               return currentTalk;
             }
           }
           // we are on the right day, but didn't find a talk -> break?
-          return "on break";
+          return 'on break';
         }
       }
       // we searched through all days and couldn't find the talk. event not in progress?
-      return "event over/not started yet";
+      return 'event over/not started yet';
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import "~assets/scss/main.scss";
+@import '~assets/scss/main.scss';
 </style>
