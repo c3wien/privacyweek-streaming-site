@@ -1,17 +1,21 @@
 <template>
   <div>
-    <NavBar />
-    <section class="hero is-info is-medium is-bold">
+    <BackgroundImage />
+    <section class="hero">
       <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1 has-text-white">PrivacyWeek 2020</h1>
+          <h2 class="subtitle has-text-white">Livestream-Portal</h2>
+        </div>
       </div>
     </section>
-    <div class="container body-content">
+    <div class="container body-content mx-5">
       <div class="columns">
-        <div class="column is-2">
-          <Menu />
-        </div>
-        <div class="column">
+        <div class="column is-three-quarters">
           <Nuxt />
+        </div>
+        <div class="column is-one-quarter">
+          <Sidebar />
         </div>
       </div>
     </div>
@@ -21,10 +25,9 @@
 
 <style lang="scss">
 @import '~assets/scss/main.scss';
-@import '~assets/scss/instaAlbum.scss';
 @import '~bulma/bulma';
 
-@media screen and (max-width: $tablet - 1) {
+/* @media screen and (max-width: $tablet - 1) {
   .column .columns {
     padding-right: 0 !important;
     margin-right: 0 !important;
@@ -58,5 +61,5 @@
       background-repeat: no-repeat;
       height: 300px;
   }
-}
+} */
 </style>

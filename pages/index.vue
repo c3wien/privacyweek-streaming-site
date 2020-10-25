@@ -1,15 +1,18 @@
 <template>
   <div class="card">
-      <div class="header">
+      <div class="card-content">
           <div class="media">
               <div class="media-left">
                   <figure class="image is-48x48">
-                      <img src="~/assets/icons/winkekatze.png" alt="winkekatze">
+                       <img src="~/assets/icons/winkekatze.png" alt="winkekatze">
+              <!-- <img src="~/assets/images/Logo_480x64px.png" alt="#PrivacyWeek"> -->
                   </figure>
               </div>
               <div class="media-content">
-                  <p class="title is-4">{{ this.$config.EventName }}</p>
-                  <p class="subtitle is-6">{{ this.$config.EventLiveStreamTitle }}</p>
+                <!--   <p class="title is-4">{{ this.$config.EventName }}</p>
+                  <p class="subtitle is-6">{{ this.$config.EventLiveStreamTitle }}</p>-->
+                  <h3 class="title is-4">Jetzt live</h3>
+                <p class="subtitle is-6">lorem ipsum</p>
               </div>
           </div>
       </div>
@@ -67,4 +70,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import '~assets/scss/main.scss';
+@import '~bulma/bulma';
+
+.card {
+    border-radius: 6px;
+}
 </style>
