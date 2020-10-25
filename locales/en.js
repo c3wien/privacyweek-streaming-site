@@ -1,3 +1,17 @@
 export default {
-    "break": "break"
+  main: {
+    title: 'PrivacyWeek 2020',
+    subTitle: 'Livestream Portal',
+  },
+  sidebar: {
+    pwHome: 'The PrivacyWeek website',
+    scheduleLink: 'Schedule',
+    scheduleText: 'List of all talks and workshops',
+    vocStreamLink: 'Alternative stream',
+    vocStreamText: 'You can also watch the live stream here.',
+    reliveLink: 'Relive',
+    reliveText: 'Missed a talk? Here you can rewind and watch previous talks.',
+    qaLink: 'F.A.Q.',
+    qaText: 'Read answers to frequent questions about the PrivacyWeek',
+  },
 };

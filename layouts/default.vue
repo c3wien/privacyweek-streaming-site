@@ -4,8 +4,8 @@
     <section class="hero">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title is-1 has-text-white">PrivacyWeek 2020</h1>
-          <h2 class="subtitle has-text-white">Livestream-Portal</h2>
+          <h1 class="title is-1 has-text-white">{{ $t('main.title') }}</h1>
+          <h2 class="subtitle has-text-white">{{ $t('main.subTitle') }}</h2>
         </div>
       </div>
     </section>

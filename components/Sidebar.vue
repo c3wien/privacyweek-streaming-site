@@ -4,39 +4,46 @@
     <h3 class="title is-4">Links</h3>
 
     <div class="block">
-      <h4 class="is-size-5 mb-1 has-text-weight-bold"><a href="#">privacyweek.at</a></h4>
-      <p>Die Homepage der PrivacyWeek</p>
+      <h4 class="is-size-5 mb-1 has-text-weight-bold">
+        <a href="https://privacyweek.at">privacyweek.at</a>
+      </h4>
+      <p>{{ $t('sidebar.pwHome') }}</p>
     </div>
 
     <div class="block">
-      <h4 class="title is-5 mb-1"><a href="#">Fahrplan</a></h4>
-      <p>Übersicht über alle Vorträge und Workshops</p>
+      <h4 class="title is-5 mb-1">
+        <a href="https://fahrplan.privacyweek.at">{{ $t('sidebar.scheduleLink') }}</a>
+      </h4>
+      <p>{{ $t('sidebar.scheduleText') }}</p>
     </div>
 
     <div class="block">
-      <h4 class="title is-5 mb-1"><a href="#">Alternativer Stream</a></h4>
-      <p>Hier kann der Livestream ebenfalls geschaut werden</p>
+      <h4 class="title is-5 mb-1">
+        <a href="https://streaming.media.ccc.de/pw20/">{{ $t('sidebar.vocStreamLink') }}</a>
+      </h4>
+      <p>{{ $t('sidebar.vocStreamText') }}</p>
     </div>
 
     <div class="block">
-      <h4 class="title is-5 mb-1"><a href="#">Relive</a></h4>
+      <h4 class="title is-5 mb-1">
+        <a href="https://streaming.media.ccc.de/pw20/relive">{{ $t('sidebar.reliveLink') }}</a>
+      </h4>
       <p>
-        Vortrag verpasst? Hier kann im Stream zurückgespult werden, um verpasst
-        Voträge anzuschauen
+        {{ $t('sidebar.reliveText') }}
       </p>
     </div>
     <div class="block">
-      <h4 class="title is-5 mb-1"><a href="#">Fragen & Antworten</a></h4>
+      <h4 class="title is-5 mb-1">
+        <a href="https://projekte.c3w.at/pw20online_faq_publikum">{{ $t('sidebar.qaLink') }}</a>
+      </h4>
       <p>
-        Hier werden häufig gestellte Fragen zur PrivacyWeek beantwortet
+        {{ $t('sidebar.qaText') }}
       </p>
     </div>
   </aside>
 </template>
 
 <style lang="scss">
-
 @import '~assets/scss/main.scss';
 @import '~bulma/bulma';
-
 </style>

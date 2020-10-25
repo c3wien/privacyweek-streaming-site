@@ -73,6 +73,7 @@ export default {
         de: de,
       },
     },
+    detectBrowserLanguage: false,
   },
   /*
    ** Build configuration
