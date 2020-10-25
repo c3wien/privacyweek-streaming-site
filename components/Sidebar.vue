@@ -25,6 +25,12 @@
         Voträge anzuschauen
       </p>
     </div>
+    <div class="block">
+      <h4 class="title is-5 mb-1"><a href="#">Fragen & Antworten</a></h4>
+      <p>
+        Hier werden häufig gestellte Fragen zur PrivacyWeek beantwortet
+      </p>
+    </div>
   </aside>
 </template>
 

@@ -74,7 +74,9 @@ export default {
 @import '~assets/scss/main.scss';
 @import '~bulma/bulma';
 
+@media screen and (min-width: $tablet) {
 .card {
     border-radius: 6px;
+}
 }
 </style>

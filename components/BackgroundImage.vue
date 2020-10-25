@@ -8,7 +8,7 @@
 .background-image::before {
     content: "";
   position: absolute;
-  height: 300px;
+  height: 400px;
   width: 100%;
   top: 0;
   left: 0;

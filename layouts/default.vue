@@ -9,12 +9,12 @@
         </div>
       </div>
     </section>
-    <div class="container body-content mx-5">
-      <div class="columns">
-        <div class="column is-three-quarters">
+    <div class="container body-content">
+      <div class="columns is-desktop">
+        <div class="column is-three-quarters-desktop">
           <Nuxt />
         </div>
-        <div class="column is-one-quarter">
+        <div class="column is-one-quarter-desktop">
           <Sidebar />
         </div>
       </div>
@@ -33,13 +33,15 @@
     margin-right: 0 !important;
   }
 }
+*/
 
-@media screen and (min-width: $tablet) {
+@media screen and (min-width: $tablet) and (max-width: $desktop) {
   .body-content {
-    padding: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
-
+/*
 .hero-body {
   display: none;
 }
