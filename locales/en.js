@@ -4,6 +4,7 @@ export default {
     subTitle: 'Livestream Portal',
   },
   sidebar: {
+    title: 'Links',
     pwHome: 'The PrivacyWeek website',
     scheduleLink: 'Schedule',
     scheduleText: 'List of all talks and workshops',
@@ -13,5 +14,9 @@ export default {
     reliveText: 'Missed a talk? Here you can rewind and watch previous talks.',
     qaLink: 'F.A.Q.',
     qaText: 'Read answers to frequent questions about the PrivacyWeek',
+  },
+  currentlyPlaying : {
+    by: 'by',
+    pretalxLink: "View talk on schedule page",
   },
 };

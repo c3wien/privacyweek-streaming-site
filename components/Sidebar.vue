@@ -1,7 +1,7 @@
 <template>
   <aside class="box">
     <!-- <img src="~/assets/images/Logo_480x64px.png" width="100%" alt="#PrivacyWeek"> -->
-    <h3 class="title is-4">Links</h3>
+    <h3 class="title is-4">{{ $t('sidebar.title') }}</h3>
 
     <div class="block">
       <h4 class="is-size-5 mb-1 has-text-weight-bold">

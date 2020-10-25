@@ -4,6 +4,7 @@ export default {
     subTitle: 'Livestream-Portal',
   },
   sidebar: {
+    title: 'Linksammlung',
     pwHome: 'Die Webseite der PrivacyWeek',
     scheduleLink: 'Fahrplan',
     scheduleText: 'Übersicht über alle Vorträge und Workshops',
@@ -14,5 +15,9 @@ export default {
       'Vortrag verpasst? Hier kann im Stream zurückgespult werden, um verpasste Vorträge anzuschauen',
     qaLink: 'Fragen & Antworten',
     qaText: 'Hier werden häufig gestellte Fragen zur PrivacyWeek beantwortet',
+  },
+  currentlyPlaying : {
+    by: 'von',
+    pretalxLink: "Vortrag im Fahrplan ansehen",
   },
 };

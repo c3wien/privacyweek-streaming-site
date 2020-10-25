@@ -2,7 +2,7 @@
   <div>
     <BackgroundImage />
     <section class="hero">
-      <div class="hero-body">
+      <div class="hero-body pb-2">
         <div class="container">
           <h1 class="title is-1 has-text-white">{{ $t('main.title') }}</h1>
           <h2 class="subtitle has-text-white">{{ $t('main.subTitle') }}</h2>
@@ -35,15 +35,15 @@
   }
 }
 */
+.language-switcher {
+  display: flex;
+  flex-flow: row-reverse wrap;
+}
 
 @media screen and (min-width: $tablet) and (max-width: $desktop) {
   .body-content {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-  .language-switcher {
-    display: flex;
-    flex-flow: row-reverse wrap;
   }
 }
 /*

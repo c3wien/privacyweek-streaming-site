@@ -27,9 +27,9 @@ export default {
 
 .active {
     text-decoration: underline;
-    font-weight: bold;
 }
 .my-button {
     background: none !important;
+    font-weight: bold;
 }
 </style>
