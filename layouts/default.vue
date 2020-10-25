@@ -10,6 +10,7 @@
       </div>
     </section>
     <div class="container body-content">
+      <div class="language-switcher"><LanguageSwitcher /></div>
       <div class="columns is-desktop">
         <div class="column is-three-quarters-desktop">
           <Nuxt />
@@ -39,6 +40,10 @@
   .body-content {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+  .language-switcher {
+    display: flex;
+    flex-flow: row-reverse wrap;
   }
 }
 /*
