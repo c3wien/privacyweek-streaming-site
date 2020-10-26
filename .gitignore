@@ -92,3 +92,5 @@ sw.*
 # demo video files
 static/demo
 
+# ignore schedule file
+schedule.json
