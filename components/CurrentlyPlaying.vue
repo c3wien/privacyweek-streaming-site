@@ -119,6 +119,9 @@ export default {
     this.refetchScheduleIntervalId = setInterval(() => {
       this.$fetch();
     }, 900000);
+
+    // make initial fetch
+    this.$fetch();
   },
   async fetch() {
     let res = await fetch(
