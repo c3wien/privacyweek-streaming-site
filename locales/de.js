@@ -29,6 +29,8 @@ export default {
       text2: 'BigBlueButton-Lounge',
       text3: '. Der ideale Ort, um sich während der Pause mit anderen Teilnehmer:innen auszutauschen.',
     },
+    askTheSpeaker: 'Eine Frage stellen'
+
   },
   nextUp: {
     nextUp: 'Nächster Beitrag',

@@ -1,6 +1,19 @@
 <template>
   <div>
-    <span v-if="timeslot" class="is-size-6 color-grey"> LIVE | {{ timeslot }}</span>
+    <div class="flex-container">
+      <span v-if="timeslot" class="is-size-6 color-grey">
+        LIVE | {{ timeslot }}</span
+      >
+      <a
+        class="button is-dark is-rounded ask-a-question"
+        href="https://cloud.privacyweek.at/apps/forms/cWxDgcfAFAPJNMmj"
+      >
+        {{ $t('currentlyPlaying.askTheSpeaker') }}
+      </a>
+    </div>
+<!--     <figure class="image is-48x48">
+      <img src="~/assets/icons/winkekatze.png" alt="winkekatze" />
+    </figure> -->
     <h2 v-if="title" class="title is-3 is-font-weight-bold mt-3">
       <span>{{ title }}</span>
       <span v-if="subtitle">{{ subtitle }}</span>
@@ -42,7 +55,7 @@ export default {
   },
   computed: {
     timeslot: function () {
-      const startDateTime = lightFormat(this.startTime, 'HH:mm')
+      const startDateTime = lightFormat(this.startTime, 'HH:mm');
       const endDateTime = lightFormat(this.endTime, 'HH:mm');
 
       return `${startDateTime} – ${endDateTime}`;
@@ -53,10 +66,27 @@ export default {
 
 <style lang="scss" scoped>
 @import '~assets/scss/main.scss';
+@import '~bulma/bulma';
+
 .color-grey {
   color: $color-darkgrey;
 }
 .speaker:not(:last-child)::after {
   content: ', ';
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.button.ask-a-question {
+  background-color: $color-violet;
+  font-weight: bold;
+  transition: background-color 0.3s linear;
+}
+a.button.ask-a-question:hover,
+a.button.ask-a-question:active {
+  background-color: #622e6f;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="footer mt-6">
       <div class="container is-three-fifths is-offset-one-fifth has-text-grey">
           <div class="content">
             <div class="columns">

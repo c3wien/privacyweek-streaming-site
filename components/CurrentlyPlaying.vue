@@ -38,7 +38,7 @@ import {
 export default {
   data: function () {
     return {
-      mockNow: true, // needed for debugging only
+      mockNow: false, // needed for debugging only
       now: this.currentDate(),
       schedule: null,
       updateTalkInfoIntervalId: '',
@@ -131,7 +131,7 @@ export default {
       if (this.mockNow === false) {
         return new Date();
       }
-      return new Date(2020, 9, 27, 18, 50);
+      return new Date(2020, 9, 27, 18, 30);
     },
     /**
      * duration in the format "HH:mm"

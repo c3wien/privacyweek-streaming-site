@@ -2,7 +2,7 @@
   <div>
     <button
       v-for="locale in this.$i18n.locales"
-      class="button is-inverted is-white ml-1 mb-2 my-button"
+      class="button is-inverted is-white mb-2 my-button"
       :class="$i18n.locale === locale.code ? 'active' : ''"
       :key="locale.code"
       @click="changeLanguage(locale.code)"

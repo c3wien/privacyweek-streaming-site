@@ -29,6 +29,7 @@ export default {
       text2: 'BigBlueButton Lounge',
       text3: '.',
     },
+    askTheSpeaker: 'Ask a question'
   },
   nextUp: {
     nextUp: 'Upcoming',
