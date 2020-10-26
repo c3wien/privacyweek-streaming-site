@@ -18,3 +18,12 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Docker
+```bash
+# build docker image
+docker build -t pw20-streaming-site:latest .
+
+# run docker image
+docker run --publish 80:80 pw20-streaming-site:latest
+```
