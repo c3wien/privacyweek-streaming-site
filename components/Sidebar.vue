@@ -2,6 +2,7 @@
   <aside class="box">
     <!-- <img src="~/assets/images/Logo_480x64px.png" width="100%" alt="#PrivacyWeek"> -->
     <h3 class="title is-4">{{ $t('sidebar.title') }}</h3>
+    <hr>
 
     <div class="block">
       <h4 class="is-size-5 mb-1 has-text-weight-bold">
@@ -15,6 +16,13 @@
         <a href="https://fahrplan.privacyweek.at">{{ $t('sidebar.scheduleLink') }}</a>
       </h4>
       <p>{{ $t('sidebar.scheduleText') }}</p>
+    </div>
+
+    <div class="block">
+      <h4 class="title is-5 mb-1">
+        <a href="https://workshops.privacyweek.at/b/phi-jkz-jak-m8l">{{ $t('sidebar.loungeLink') }}</a>
+      </h4>
+      <p>{{ $t('sidebar.loungeText') }}</p>
     </div>
 
     <div class="block">

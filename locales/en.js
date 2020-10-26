@@ -8,8 +8,10 @@ export default {
     pwHome: 'The PrivacyWeek website',
     scheduleLink: 'Schedule',
     scheduleText: 'List of all talks and workshops',
+    loungeLink: 'Lounge',
+    loungeText: 'Join the lounge to socialise with other participants',
     vocStreamLink: 'Alternative stream',
-    vocStreamText: 'You can also watch the live stream here.',
+    vocStreamText: 'You can also watch the live stream here',
     reliveLink: 'Relive',
     reliveText: 'Missed a talk? Here you can rewind and watch previous talks.',
     qaLink: 'F.A.Q.',
@@ -20,7 +22,13 @@ export default {
     pretalxLink: 'View talk on schedule page',
     notStarted: 'Livestream starts on Oct 26th, 16:00 CET',
     hasEnded: 'The livestream has ended',
-    onBreak: 'Break',
+    onBreak: {
+      title: 'Break',
+      text1:
+        "If you'd like to socialise with other participants, feel free to join our ",
+      text2: 'BigBlueButton Lounge',
+      text3: '.',
+    },
   },
   nextUp: {
     nextUp: 'Upcoming',
