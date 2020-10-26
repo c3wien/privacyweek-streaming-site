@@ -21,7 +21,7 @@ export default {
   currentlyPlaying: {
     by: 'von',
     pretalxLink: 'Vortrag im Fahrplan ansehen',
-    notStarted: 'Livestream startet am 26.10 um 16:00 CET',
+    notStarted: 'Livestream startet am 26.10. um 16:00 CET',
     hasEnded: 'Der Livestream ist vorbei',
     onBreak: {
       title: 'Pause',

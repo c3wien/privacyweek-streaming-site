@@ -18,7 +18,9 @@
       </h2>
       <p v-if="eventHasBreak">
         {{ $t('currentlyPlaying.onBreak.text1') }}
-        <a href="https://workshops.privacyweek.at/b/phi-jkz-jak-m8l">{{ $t('currentlyPlaying.onBreak.text2') }}</a
+        <a href="https://workshops.privacyweek.at/b/phi-jkz-jak-m8l">{{
+          $t('currentlyPlaying.onBreak.text2')
+        }}</a
         >{{ $t('currentlyPlaying.onBreak.text3') }}
       </p>
     </div>
@@ -38,7 +40,7 @@ import {
 export default {
   data: function () {
     return {
-      mockNow: false, // needed for debugging only
+      mockNow: false, // needed for debugging timing
       now: this.currentDate(),
       schedule: null,
       updateTalkInfoIntervalId: '',
@@ -104,25 +106,32 @@ export default {
       }
     },
   },
-  created: function () {
-    // todo: regularly refetch the schedule
-    // todo: there are better lifecycle methods for doing this
-    fetch('https://fahrplan.privacyweek.at/pw20/schedule/export/schedule.json')
-      .then((response) => response.json())
-      .then((data) => {
-        this.schedule = this.prepareSchedule(data.schedule);
-      })
-      .then(() => {
-        this.now = this.currentDate();
-      });
-
+  mounted() {
+    // force refresh talk info display every minute, so that we can switch to break and
+    // next talk at the correct time. also make sure we have a schedule
     this.updateTalkInfoIntervalId = setInterval(() => {
-      this.now = this.mockNow ? addSeconds(this.now, 10) : currentDate();
-    }, 10000);
-    // todo increase this to 60 secs
+      this.now = this.mockNow ? addSeconds(this.now, 60) : this.currentDate();
+      if (!this.schedule && !$fetchState.pending) {
+        this.$fetch();
+      }
+    }, 60000);
+    // refetch schedule every 15 minute in case something changed
+    this.refetchScheduleIntervalId = setInterval(() => {
+      this.$fetch();
+    }, 900000);
+  },
+  async fetch() {
+    let res = await fetch(
+      'https://fahrplan.privacyweek.at/pw20/schedule/export/schedule.json'
+    );
+    res = await res.json();
+    this.schedule = this.prepareSchedule(res.schedule);
+
+    this.now = this.currentDate();
   },
   beforeDestroy: function () {
     clearInterval(this.updateTalkInfoIntervalId);
+    clearInterval(this.refetchScheduleIntervalId);
   },
   methods: {
     // helper function that returns mocked date
@@ -180,7 +189,7 @@ export default {
 
     prepareSchedule: function (schedule) {
       const talksByDay = schedule.conference.days.map(
-        (day) => day.rooms['Lecture Hall 1']
+        (day) => day.rooms['Lecture Hall 1'] || day.rooms['Saal 1']
       );
       const flatSchedule = [].concat(...talksByDay);
       const talks = flatSchedule.map((talk) => this.shapeTalkData(talk));
