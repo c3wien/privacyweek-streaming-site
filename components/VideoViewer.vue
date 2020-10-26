@@ -7,7 +7,7 @@
       preload="auto"
       poster="/stream-images/stream_poster.jpg"
       data-setup="{}">
-      <source src="https://cdn.c3voc.de/hls/pw20_native_hd.m3u8" type="application/x-mpegURL" />
+      <source src="/hls/orig/main_hd.m3u8" type="application/x-mpegURL" />
       <p class="vjs-no-js">
         To view this video please enable JavaScript, and consider upgrading to a
         web browser that
