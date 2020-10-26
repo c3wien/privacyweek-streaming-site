@@ -10,8 +10,6 @@ export default {
     pwHome: 'Die Webseite der PrivacyWeek',
     scheduleLink: 'Fahrplan',
     scheduleText: 'Übersicht über alle Vorträge und Workshops',
-    loungeLink: 'Lounge',
-    loungeText: 'Hier kann mensch sich mit anderen Teilnehmer:innen austauschen',
     vocStreamLink: 'Alternativer Stream',
     vocStreamText: 'Hier kann der Livestream ebenfalls geschaut werden',
     reliveLink: 'Relive',
@@ -27,9 +25,6 @@ export default {
     hasEnded: 'Der Livestream ist vorbei',
     onBreak: {
       title: 'Pause',
-      text1: "Hier geht's zu unserer ",
-      text2: 'BigBlueButton-Lounge',
-      text3: '. Der ideale Ort, um sich während der Pause mit anderen Teilnehmer:innen auszutauschen.',
     },
     askTheSpeaker: 'Eine Frage stellen'
 

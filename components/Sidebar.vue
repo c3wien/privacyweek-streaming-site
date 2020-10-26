@@ -20,13 +20,6 @@
 
     <div class="block">
       <h4 class="title is-5 mb-1">
-        <a href="https://privacyweek.at/lounge">{{ $t('sidebar.loungeLink') }}</a>
-      </h4>
-      <p>{{ $t('sidebar.loungeText') }}</p>
-    </div>
-
-    <div class="block">
-      <h4 class="title is-5 mb-1">
         <a href="https://streaming.media.ccc.de/pw20/">{{ $t('sidebar.vocStreamLink') }}</a>
       </h4>
       <p>{{ $t('sidebar.vocStreamText') }}</p>

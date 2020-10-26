@@ -3,7 +3,7 @@ export default {
     title: 'PrivacyWeek 2020',
     subTitle: 'Livestream Portal',
   },
-  translationComingSoon: 'We are still working on integrating the translated  audio stream. In the meanwhile it is available at ', 
+  translationComingSoon: 'We are still working on integrating the translated  audio stream. In the meanwhile it is available at ',
   sidebar: {
     title: 'Links',
     pwHome: 'The PrivacyWeek website',
@@ -25,10 +25,6 @@ export default {
     hasEnded: 'The livestream has ended',
     onBreak: {
       title: 'Break',
-      text1:
-        "If you'd like to socialise with other participants, feel free to join our ",
-      text2: 'BigBlueButton Lounge',
-      text3: '.',
     },
     askTheSpeaker: 'Ask a question'
   },
