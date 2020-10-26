@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="video-js-container">
     <video class="video-js vjs-big-play-centered"
       id="videojs-container"
@@ -16,6 +17,8 @@
         >
       </p>
     </video>
+  </div>
+  <p class="is-size-6 is-size-7 px-2 py-2">{{ $t('translationComingSoon') }}<a href="https://streaming.media.ccc.de/pw20/">streaming.media.ccc.de/pw20/</a></p>
   </div>
 </template>
 
