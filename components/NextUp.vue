@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <span v-if="timeslot" class="is-size-6 color-grey"> LIVE | {{ timeslot }}</span>
-    <h2 v-if="title" class="title is-3 is-font-weight-bold mt-3">
+  <div class="box next-up">
+    <span v-if="timeslot" class="is-size-6 color-grey"> {{ $t('nextUp.nextUp')}} | {{ timeslot }}</span>
+    <h2 v-if="title" class="title is-4 is-font-weight-bold my-3">
       <span>{{ title }}</span>
       <span v-if="subtitle">{{ subtitle }}</span>
     </h2>
@@ -9,7 +9,7 @@
       <span
         v-for="speaker in speakers"
         :key="speaker.id"
-        class="is-size-5 speaker"
+        class="is-size-6 speaker"
       >
         <span v-if="speaker.name">{{ speaker.name }}</span>
       </span>
@@ -58,5 +58,10 @@ export default {
 }
 .speaker:not(:last-child)::after {
   content: ', ';
+}
+
+.next-up {
+    box-shadow: none;
+    border: 1px solid $color-violet;
 }
 </style>

@@ -1,16 +1,23 @@
 <template>
-  <div
-    v-if="talkInProgress && currentTalk && currentTalk.title"
-    class="content"
-  >
-    <TalkInfo v-bind="currentTalk" />
-  </div>
-  <div v-else class="content">
-    <h2 class="title is-3 is-font-weight-bold mt-3">
-      <span v-if="eventHasntStartedYet">{{ $t('currentlyPlaying.notStarted') }}</span>
-      <span v-else-if="eventHasEnded">{{ $t('currentlyPlaying.hasEnded') }}</span>
-      <span v-else>{{ $t('currentlyPlaying.onBreak') }}</span>
-    </h2>
+  <div>
+    <div
+      v-if="talkInProgress && currentTalk && currentTalk.title"
+      class="content"
+    >
+      <TalkInfo v-bind="currentTalk" />
+    </div>
+    <div v-else class="content">
+      <h2 class="title is-3 is-font-weight-bold mt-3">
+        <span v-if="eventHasntStartedYet">{{
+          $t('currentlyPlaying.notStarted')
+        }}</span>
+        <span v-else-if="eventHasEnded">{{
+          $t('currentlyPlaying.hasEnded')
+        }}</span>
+        <span v-else>{{ $t('currentlyPlaying.onBreak') }}</span>
+      </h2>
+    </div>
+    <NextUp v-if="upcomingTalk" v-bind="upcomingTalk" />
   </div>
 </template>
 
@@ -72,6 +79,25 @@ export default {
     talkInProgress: function () {
       return !!this.currentTalk;
     },
+    upcomingTalk: function () {
+      if (
+        this.eventIsLive &&
+        this.talkInProgress &&
+        this.presentAndFutureTalks &&
+        this.presentAndFutureTalks[1]
+      ) {
+        return this.presentAndFutureTalks[1];
+      } else if (
+        this.eventIsLive &&
+        !this.talkInProgress &&
+        this.presentAndFutureTalks &&
+        this.presentAndFutureTalks[0]
+      ) {
+        return this.presentAndFutureTalks[0];
+      } else {
+        return null;
+      }
+    },
   },
   created: function () {
     // todo: regularly refetch the schedule
@@ -100,7 +126,7 @@ export default {
       if (this.mockNow === false) {
         return new Date();
       }
-      return new Date(2020, 9, 27, 18, 10);
+      return new Date(2020, 9, 27, 18, 50);
     },
     /**
      * duration in the format "HH:mm"

@@ -16,11 +16,14 @@ export default {
     qaLink: 'Fragen & Antworten',
     qaText: 'Hier werden häufig gestellte Fragen zur PrivacyWeek beantwortet',
   },
-  currentlyPlaying : {
+  currentlyPlaying: {
     by: 'von',
-    pretalxLink: "Vortrag im Fahrplan ansehen",
-    notStarted: "Livestream starts on Oct 26th, 16:00 CET",
-    hasEnded: "The livestream has ended",
-    onBreak: "Break",
+    pretalxLink: 'Vortrag im Fahrplan ansehen',
+    notStarted: 'Livestream startet am 26.10 um 16:00 CET',
+    hasEnded: 'Der Livestream ist vorbei',
+    onBreak: 'Pause',
+  },
+  nextUp: {
+    nextUp: 'Nächster Beitrag',
   },
 };

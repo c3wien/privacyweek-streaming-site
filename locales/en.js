@@ -15,11 +15,14 @@ export default {
     qaLink: 'F.A.Q.',
     qaText: 'Read answers to frequent questions about the PrivacyWeek',
   },
-  currentlyPlaying : {
+  currentlyPlaying: {
     by: 'by',
-    pretalxLink: "View talk on schedule page",
-    notStarted: "Livestream starts on Oct 26th, 16:00 CET",
-    hasEnded: "The livestream has ended",
-    onBreak: "Break",
+    pretalxLink: 'View talk on schedule page',
+    notStarted: 'Livestream starts on Oct 26th, 16:00 CET',
+    hasEnded: 'The livestream has ended',
+    onBreak: 'Break',
+  },
+  nextUp: {
+    nextUp: 'Upcoming',
   },
 };
