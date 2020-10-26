@@ -7,6 +7,8 @@
       <a
         class="button is-dark is-rounded ask-a-question"
         href="https://cloud.privacyweek.at/apps/forms/cWxDgcfAFAPJNMmj"
+        target="_blank"
+        rel="noopener"
       >
         {{ $t('currentlyPlaying.askTheSpeaker') }}
       </a>
