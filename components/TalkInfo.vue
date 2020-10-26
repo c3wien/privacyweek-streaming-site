@@ -6,7 +6,7 @@
       >
       <a
         class="button is-dark is-rounded ask-a-question"
-        href="https://cloud.privacyweek.at/apps/forms/cWxDgcfAFAPJNMmj"
+        href="https://privacyweek.at/fragen"
         target="_blank"
         rel="noopener"
       >

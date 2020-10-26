@@ -18,7 +18,7 @@
       </h2>
       <p v-if="eventHasBreak">
         {{ $t('currentlyPlaying.onBreak.text1') }}
-        <a href="https://workshops.privacyweek.at/b/phi-jkz-jak-m8l">{{
+        <a href="https://privacyweek.at/lounge">{{
           $t('currentlyPlaying.onBreak.text2')
         }}</a
         >{{ $t('currentlyPlaying.onBreak.text3') }}
