@@ -1,18 +1,18 @@
 <template>
   <div>
-    <span v-if="timeslot" class="is-size-6 color-grey">{{ timeslot }}</span>
+    <span v-if="timeslot" class="is-size-6 color-grey"> LIVE | {{ timeslot }}</span>
     <h2 v-if="title" class="title is-3 is-font-weight-bold mt-3">
       <span>{{ title }}</span>
       <span v-if="subtitle">{{ subtitle }}</span>
     </h2>
     <div v-if="speakers && speakers.length > 0" class="mb-2">
-      <div
+      <span
         v-for="speaker in speakers"
         :key="speaker.id"
         class="is-size-5 speaker"
       >
         <span v-if="speaker.name">{{ speaker.name }}</span>
-      </div>
+      </span>
     </div>
     <hr />
     <p v-if="abstract" class="block is-italic">
@@ -21,7 +21,6 @@
     <p v-if="description" class="block">
       {{ description }}
     </p>
-    <p v-if="timeslot">{{ timeslot }}</p>
     <p>
       <a v-bind:href="pretalxLink">{{ $t('currentlyPlaying.pretalxLink') }}</a>
     </p>
@@ -29,16 +28,25 @@
 </template>
 
 <script>
+import { lightFormat } from 'date-fns';
 export default {
   props: {
     title: String,
     subtitle: String,
-    date: Object,
-    duration: Object, // { hours, minutes}
+    startTime: Date,
+    endTime: Date,
     speakers: Array, // [{ id, name}]
     abstract: String,
     description: String,
     pretalxLink: String,
+  },
+  computed: {
+    timeslot: function () {
+      const startDateTime = lightFormat(this.startTime, 'HH:mm')
+      const endDateTime = lightFormat(this.endTime, 'HH:mm');
+
+      return `${startDateTime} – ${endDateTime}`;
+    },
   },
 };
 </script>

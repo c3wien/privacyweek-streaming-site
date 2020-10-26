@@ -19,5 +19,8 @@ export default {
   currentlyPlaying : {
     by: 'von',
     pretalxLink: "Vortrag im Fahrplan ansehen",
+    notStarted: "Livestream starts on Oct 26th, 16:00 CET",
+    hasEnded: "The livestream has ended",
+    onBreak: "Break",
   },
 };
