@@ -7,6 +7,9 @@
       <TalkInfo v-bind="currentTalk" />
     </div>
     <div v-else class="content">
+      <div class="flex-container">
+        <AskTheSpeaker />
+      </div>
       <h2 class="title is-3 is-font-weight-bold mt-3">
         <span v-if="eventHasntStartedYet">{{
           $t('currentlyPlaying.notStarted')
@@ -205,3 +208,9 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+</style>

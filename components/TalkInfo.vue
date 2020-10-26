@@ -4,14 +4,7 @@
       <span v-if="timeslot" class="is-size-6 color-grey">
         LIVE | {{ timeslot }}</span
       >
-      <a
-        class="button is-dark is-rounded ask-a-question"
-        href="https://privacyweek.at/fragen"
-        target="_blank"
-        rel="noopener"
-      >
-        {{ $t('currentlyPlaying.askTheSpeaker') }}
-      </a>
+      <AskTheSpeaker />
     </div>
 <!--     <figure class="image is-48x48">
       <img src="~/assets/icons/winkekatze.png" alt="winkekatze" />
@@ -80,15 +73,5 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-a.button.ask-a-question {
-  background-color: $color-violet;
-  font-weight: bold;
-  transition: background-color 0.3s linear;
-}
-a.button.ask-a-question:hover,
-a.button.ask-a-question:active {
-  background-color: #622e6f;
 }
 </style>
