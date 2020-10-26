@@ -19,13 +19,6 @@
         }}</span>
         <span v-else>{{ $t('currentlyPlaying.onBreak.title') }}</span>
       </h2>
-      <p v-if="eventHasBreak">
-        {{ $t('currentlyPlaying.onBreak.text1') }}
-        <a href="https://privacyweek.at/lounge">{{
-          $t('currentlyPlaying.onBreak.text2')
-        }}</a
-        >{{ $t('currentlyPlaying.onBreak.text3') }}
-      </p>
     </div>
     <NextUp v-if="upcomingTalk" v-bind="upcomingTalk" />
   </div>
