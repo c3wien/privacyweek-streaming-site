@@ -81,7 +81,7 @@ export default {
         this.presentAndFutureTalks &&
         this.presentAndFutureTalks[0]
         ? this.presentAndFutureTalks[0]
-        : {};
+        : null;
     },
     talkInProgress: function () {
       return !!this.currentTalk;
