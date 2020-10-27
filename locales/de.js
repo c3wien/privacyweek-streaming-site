@@ -32,4 +32,9 @@ export default {
   nextUp: {
     nextUp: 'Nächster Beitrag',
   },
+  videoPlayer: {
+    selectTrack: 'Track:',
+    original: 'Original',
+    translation: 'Übersetzung',
+  },
 };

@@ -3,7 +3,6 @@ export default {
     title: 'PrivacyWeek 2020',
     subTitle: 'Livestream Portal',
   },
-  translationComingSoon: 'We are still working on integrating the translated  audio stream. In the meanwhile it is available at ',
   sidebar: {
     title: 'Links',
     pwHome: 'The PrivacyWeek website',
@@ -30,5 +29,10 @@ export default {
   },
   nextUp: {
     nextUp: 'Upcoming',
+  },
+  videoPlayer: {
+    selectTrack: 'Track:',
+    original: 'Original',
+    translation: 'Translation',
   },
 };
