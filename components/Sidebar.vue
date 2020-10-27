@@ -20,6 +20,27 @@
 
     <div class="block">
       <h4 class="title is-5 mb-1">
+        <a href="https://privacyweek.at/pausengespraeche">{{ $t('sidebar.bbbAfterTalkLink') }}</a>
+      </h4>
+      <p>{{ $t('sidebar.bbbAfterTalkText') }}</p>
+    </div>
+
+    <div class="block">
+      <h4 class="title is-5 mb-1">
+        <a href="https://privacyweek.at/coffee">{{ $t('sidebar.coffeeLink') }}</a>
+      </h4>
+      <p>{{ $t('sidebar.coffeeText') }}</p>
+    </div>
+
+    <div class="block">
+      <h4 class="title is-5 mb-1">
+        <a href="https://privacyweek.at/feedback">{{ $t('sidebar.feedbackLink') }}</a>
+      </h4>
+      <p>{{ $t('sidebar.feedbackText') }}</p>
+    </div>
+
+    <div class="block">
+      <h4 class="title is-5 mb-1">
         <a href="https://streaming.media.ccc.de/pw20/">{{ $t('sidebar.vocStreamLink') }}</a>
       </h4>
       <p>{{ $t('sidebar.vocStreamText') }}</p>
@@ -33,6 +54,7 @@
         {{ $t('sidebar.reliveText') }}
       </p>
     </div>
+
     <div class="block">
       <h4 class="title is-5 mb-1">
         <a href="https://projekte.c3w.at/pw20online_faq_publikum">{{ $t('sidebar.qaLink') }}</a>
@@ -41,6 +63,14 @@
         {{ $t('sidebar.qaText') }}
       </p>
     </div>
+
+    <div class="block">
+      <h4 class="title is-5 mb-1">
+        <a href="https://privacyweek.at/infodesk">{{ $t('sidebar.infodeskLink') }}</a>
+      </h4>
+      <p>{{ $t('sidebar.infodeskText') }}</p>
+    </div>
+
   </aside>
 </template>
 
