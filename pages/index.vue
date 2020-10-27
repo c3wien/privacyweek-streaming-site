@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-image">
-      <VideoViewer />
+      <VideoSwitcher />
     </div>
     <div class="card-content">
       <CurrentlyPlaying />
