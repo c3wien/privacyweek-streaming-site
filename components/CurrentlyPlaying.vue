@@ -121,7 +121,7 @@ export default {
   },
   async fetch() {
     let res = await fetch(
-      '/schedule.json'
+      'https://stream.privacyweek.at/schedule.json'
     );
     res = await res.json();
     this.schedule = this.prepareSchedule(res.schedule);
