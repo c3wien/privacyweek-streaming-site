@@ -10,11 +10,16 @@ export default {
     pwHome: 'Die Webseite der PrivacyWeek',
     scheduleLink: 'Fahrplan',
     scheduleText: 'Übersicht über alle Vorträge und Workshops',
+    bbbAfterTalkLink: 'Pausengespräche',
+    bbbAfterTalkText: 'Hier könnt Ihr euch mit den Vortragenden nach den Talks austauschen.',
+    coffeeLink: 'Café',
+    coffeeText: 'Gönnt euch eine Pause und plaudert bei einem Getränk mit anderen Teilnehmer:innen.',
+    feedbackLink: 'Feedback',
+    feedbackText: 'Wie hat dir die PrivacyWeek 2020 gefallen, was können wir noch verbessern? Hier kannst du uns anonym alles mitteilen, was dir einfällt!',
     vocStreamLink: 'Alternativer Stream',
     vocStreamText: 'Hier kann der Livestream ebenfalls geschaut werden',
     reliveLink: 'Relive',
-    reliveText:
-      'Vortrag verpasst? Hier kann im Stream zurückgespult werden, um verpasste Vorträge anzuschauen.',
+    reliveText: 'Vortrag verpasst? Hier kann im Stream zurückgespult werden, um verpasste Vorträge anzuschauen.',
     qaLink: 'Fragen & Antworten',
     qaText: 'Hier werden häufig gestellte Fragen zur PrivacyWeek beantwortet',
   },
@@ -27,7 +32,6 @@ export default {
       title: 'Pause',
     },
     askTheSpeaker: 'Eine Frage stellen'
-
   },
   nextUp: {
     nextUp: 'Nächster Beitrag',
