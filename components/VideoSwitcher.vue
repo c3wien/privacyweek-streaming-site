@@ -13,9 +13,8 @@
       livestreamUrl="https://stream.privacyweek.at/hls/orig/main_hd.m3u8"
     />
     <div class="video-track-selection mt-5">
-      <div class="is-size-7 ml-5">{{ $t('videoPlayer.selectTrack') }}</div>
       <button
-        class="button is-light is-rounded is-medium"
+        class="button ml-5 is-light is-rounded is-medium"
         :class="selectedTrack === 'original' ? 'active' : 'not-active'"
         @click="switchTrack('original')"
       >
