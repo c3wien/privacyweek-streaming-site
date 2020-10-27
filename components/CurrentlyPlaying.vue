@@ -121,7 +121,7 @@ export default {
   },
   async fetch() {
     let res = await fetch(
-      'https://fahrplan.privacyweek.at/pw20/schedule/export/schedule.json'
+      '/schedule.json'
     );
     res = await res.json();
     this.schedule = this.prepareSchedule(res.schedule);
