@@ -22,6 +22,8 @@ export default {
     reliveText: 'Vortrag verpasst? Hier kann im Stream zurückgespult werden, um verpasste Vorträge anzuschauen.',
     qaLink: 'Fragen & Antworten',
     qaText: 'Hier werden häufig gestellte Fragen zur PrivacyWeek beantwortet',
+    infodeskLink: 'Infodesk',
+    infodeskText: 'Du hast allgemeine Fragen, die nicht auf dieser Seite oder im FAQ beantwortet werden? Wende dich an unseren virtuellen Infodesk.',
   },
   currentlyPlaying: {
     by: 'von',

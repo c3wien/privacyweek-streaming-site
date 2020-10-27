@@ -22,6 +22,8 @@ export default {
     reliveText: 'Missed a talk? Here you can rewind and watch previous talks.',
     qaLink: 'F.A.Q.',
     qaText: 'Read answers to frequent questions about the PrivacyWeek',
+    infodeskLink: 'Info Desk',
+    infodeskText: 'You have a question we didn\'t answer in this Page or our FAQ? Please visit our virtual Infodesk and talk to a person.',
   },
   currentlyPlaying: {
     by: 'by',
