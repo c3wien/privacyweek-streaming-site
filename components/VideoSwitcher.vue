@@ -43,7 +43,6 @@ export default {
   },
   methods: {
     switchTrack: function (track) {
-      console.log('switching track to', track);
       this.selectedTrack = track;
     },
   },
