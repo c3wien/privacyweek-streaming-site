@@ -39,6 +39,7 @@ export default {
       mockNow: false, // needed for debugging timing
       now: this.currentDate(),
       schedule: null,
+      workshops: null,
       updateTalkInfoIntervalId: '',
       refetchScheduleIntervalId: '',
     };
@@ -78,6 +79,15 @@ export default {
         this.presentAndFutureTalks[0]
         ? this.presentAndFutureTalks[0]
         : null;
+    },
+    currentWorkshops: function () {
+      if (!this.workshops) return [];
+      return this.workshops.filter((talk) => {
+        return talk.endTime > this.now && talk.startTime < this.now;
+      });
+    },
+    isWorkshopNow: function () {
+      return this.currentWorkshops.length > 0;
     },
     talkInProgress: function () {
       return !!this.currentTalk;
@@ -125,6 +135,7 @@ export default {
     );
     res = await res.json();
     this.schedule = this.prepareSchedule(res.schedule);
+    this.workshops = this.prepareWorkshops(res.schedule);
 
     this.now = this.currentDate();
   },
@@ -166,6 +177,7 @@ export default {
     shapeTalkData: function (rawTalk) {
       if (!rawTalk) return;
       const talk = {
+        id: rawTalk.id,
         title: rawTalk.title || '',
         subtitle: rawTalk.subtitle || '',
         startTime: rawTalk.date ? new Date(rawTalk.date) : null,
@@ -196,6 +208,22 @@ export default {
         return a.startTime - b.startTime;
       });
       return talks;
+    },
+    prepareWorkshops: function (schedule) {
+      const workshopsByDay = schedule.conference.days.map(
+        (day) => day.rooms['Workshop'] || day.rooms['Workshopraum']
+      );
+      const workshops2ByDay = schedule.conference.days.map(
+        (day) => day.rooms['Workshop 2'] || day.rooms['Workshopraum 2']
+      );
+      const flatWorkshopScheudle = [].concat(...workshopsByDay, ...workshops2ByDay).filter(function (element) {
+        return element !== undefined;
+      });
+      const workshops = flatWorkshopScheudle.map((talk) => this.shapeTalkData(talk));
+      workshops.sort(function (a, b) {
+        return a.startTime - b.startTime;
+      });
+      return workshops;
     },
   },
 };
