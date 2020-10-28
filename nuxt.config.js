@@ -76,7 +76,10 @@ export default {
         de: de,
       },
     },
-    detectBrowserLanguage: false,
+    strategy: 'no_prefix',
+    detectBrowserLanguage: {
+      useCookie: false
+    },
   },
   /*
    ** Build configuration
