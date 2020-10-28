@@ -35,6 +35,10 @@
   }
 }
 */
+body {
+  overflow-x: hidden;
+}
+
 .language-switcher {
   display: flex;
   flex-flow: row-reverse wrap;
