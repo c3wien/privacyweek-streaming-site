@@ -31,7 +31,10 @@ export default {
     onBreak: {
       title: 'Pause',
     },
-    askTheSpeaker: 'Eine Frage stellen'
+    askTheSpeaker: 'Eine Frage stellen',
+    currentWorkshops: 'Aktuelle Workshops',
+    pretalxWorkshopLink: 'Workshop im Fahrplan ansehen',
+    gotoWorkshop: 'Zum Workshop',
   },
   nextUp: {
     nextUp: 'Nächster Beitrag',
