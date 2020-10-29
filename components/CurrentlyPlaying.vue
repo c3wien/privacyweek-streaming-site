@@ -156,6 +156,12 @@ export default {
     this.workshopMap = await res.json();
 
     this.now = this.currentDate();
+
+    if(this.isWorkshopNow) {
+      document.getElementById('workshopButton').classList.remove('is-hidden');
+    } else {
+      document.getElementById('workshopButton').classList.add('is-hidden');
+    }
   },
   beforeDestroy: function () {
     clearInterval(this.updateTalkInfoIntervalId);
