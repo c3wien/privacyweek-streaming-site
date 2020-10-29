@@ -21,6 +21,16 @@
       </h2>
     </div>
     <NextUp v-if="upcomingTalk" v-bind="upcomingTalk" />
+
+    <div v-if="isWorkshopNow">
+      <h2 class="title is-3 is-font-weight-bold pt-5" id="workshops">
+        {{$t('currentlyPlaying.currentWorkshops')}}
+      </h2>
+      <hr />
+      <div v-for="workshop in currentWorkshops" :key="workshop.id">
+        <Workshop v-bind="workshop" v-bind:bbbURL="getWorkshopBBBLink(workshop.id)"></Workshop>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,8 +42,10 @@ import {
   addDays,
   addSeconds,
 } from 'date-fns';
+import Workshop from "./Workshop";
 
 export default {
+  components: {Workshop},
   data: function () {
     return {
       mockNow: false, // needed for debugging timing
