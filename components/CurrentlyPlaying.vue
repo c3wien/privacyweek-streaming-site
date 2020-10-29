@@ -52,6 +52,7 @@ export default {
       now: this.currentDate(),
       schedule: null,
       workshops: null,
+      workshopMap: [],
       updateTalkInfoIntervalId: '',
       refetchScheduleIntervalId: '',
     };
@@ -149,6 +150,11 @@ export default {
     this.schedule = this.prepareSchedule(res.schedule);
     this.workshops = this.prepareWorkshops(res.schedule);
 
+    res = await fetch(
+      '/workshops.json'
+    );
+    this.workshopMap = await res.json();
+
     this.now = this.currentDate();
   },
   beforeDestroy: function () {
@@ -236,6 +242,9 @@ export default {
         return a.startTime - b.startTime;
       });
       return workshops;
+    },
+    getWorkshopBBBLink: function (id) {
+      return this.workshopMap[id] ? this.workshopMap[id] : "";
     },
   },
 };
