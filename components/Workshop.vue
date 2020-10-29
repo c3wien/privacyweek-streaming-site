@@ -25,7 +25,7 @@
       <a v-bind:href="pretalxLink">{{ $t('currentlyPlaying.pretalxWorkshopLink') }}</a>
       <a
         class="button is-dark is-rounded goto-workshop"
-        href=""
+        v-bind:href="bbbURL"
       >
         {{ $t('currentlyPlaying.gotoWorkshop') }}
       </a>
@@ -46,6 +46,7 @@ export default {
     abstract: String,
     description: String,
     pretalxLink: String,
+    bbbURL: String
   },
   computed: {
     timeslot: function () {
