@@ -128,6 +128,13 @@ export default {
     // next talk at the correct time. also make sure we have a schedule
     this.updateTalkInfoIntervalId = setInterval(() => {
       this.now = this.mockNow ? addSeconds(this.now, 60) : this.currentDate();
+
+      // Update workshop button
+      if(this.isWorkshopNow) {
+        document.getElementById('workshopButton').classList.remove('is-hidden');
+      } else {
+        document.getElementById('workshopButton').classList.add('is-hidden');
+      }
       if (!this.schedule && !$fetchState.pending) {
         this.$fetch();
       }
@@ -154,12 +161,6 @@ export default {
     this.workshopMap = await res.json();
 
     this.now = this.currentDate();
-
-    if(this.isWorkshopNow) {
-      document.getElementById('workshopButton').classList.remove('is-hidden');
-    } else {
-      document.getElementById('workshopButton').classList.add('is-hidden');
-    }
   },
   beforeDestroy: function () {
     clearInterval(this.updateTalkInfoIntervalId);
