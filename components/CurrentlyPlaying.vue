@@ -21,24 +21,36 @@
       </h2>
     </div>
     <NextUp v-if="upcomingTalk" v-bind="upcomingTalk" />
+
+    <div v-if="isWorkshopNow">
+      <h2 class="title is-3 is-font-weight-bold pt-5" id="workshops">
+        {{$t('currentlyPlaying.currentWorkshops')}}
+      </h2>
+      <hr />
+      <div v-for="workshop in currentWorkshops" :key="workshop.id">
+        <Workshop v-bind="workshop" v-bind:bbbURL="getWorkshopBBBLink(workshop.id)"></Workshop>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import {
-  isWithinInterval,
   addMinutes,
   addHours,
-  addDays,
   addSeconds,
 } from 'date-fns';
+import Workshop from "./Workshop";
 
 export default {
+  components: {Workshop},
   data: function () {
     return {
       mockNow: false, // needed for debugging timing
       now: this.currentDate(),
       schedule: null,
+      workshops: null,
+      workshopMap: [],
       updateTalkInfoIntervalId: '',
       refetchScheduleIntervalId: '',
     };
@@ -78,6 +90,15 @@ export default {
         this.presentAndFutureTalks[0]
         ? this.presentAndFutureTalks[0]
         : null;
+    },
+    currentWorkshops: function () {
+      if (!this.workshops) return [];
+      return this.workshops.filter((talk) => {
+        return talk.endTime > this.now && talk.startTime < this.now;
+      });
+    },
+    isWorkshopNow: function () {
+      return this.currentWorkshops.length > 0;
     },
     talkInProgress: function () {
       return !!this.currentTalk;
@@ -125,8 +146,20 @@ export default {
     );
     res = await res.json();
     this.schedule = this.prepareSchedule(res.schedule);
+    this.workshops = this.prepareWorkshops(res.schedule);
+
+    res = await fetch(
+      '/workshops.json'
+    );
+    this.workshopMap = await res.json();
 
     this.now = this.currentDate();
+
+    if(this.isWorkshopNow) {
+      document.getElementById('workshopButton').classList.remove('is-hidden');
+    } else {
+      document.getElementById('workshopButton').classList.add('is-hidden');
+    }
   },
   beforeDestroy: function () {
     clearInterval(this.updateTalkInfoIntervalId);
@@ -166,6 +199,7 @@ export default {
     shapeTalkData: function (rawTalk) {
       if (!rawTalk) return;
       const talk = {
+        id: rawTalk.id,
         title: rawTalk.title || '',
         subtitle: rawTalk.subtitle || '',
         startTime: rawTalk.date ? new Date(rawTalk.date) : null,
@@ -196,6 +230,25 @@ export default {
         return a.startTime - b.startTime;
       });
       return talks;
+    },
+    prepareWorkshops: function (schedule) {
+      const workshopsByDay = schedule.conference.days.map(
+        (day) => day.rooms['Workshop'] || day.rooms['Workshopraum']
+      );
+      const workshops2ByDay = schedule.conference.days.map(
+        (day) => day.rooms['Workshop 2'] || day.rooms['Workshopraum 2']
+      );
+      const flatWorkshopScheudle = [].concat(...workshopsByDay, ...workshops2ByDay).filter(function (element) {
+        return element !== undefined;
+      });
+      const workshops = flatWorkshopScheudle.map((talk) => this.shapeTalkData(talk));
+      workshops.sort(function (a, b) {
+        return a.startTime - b.startTime;
+      });
+      return workshops;
+    },
+    getWorkshopBBBLink: function (id) {
+      return this.workshopMap[id] ? this.workshopMap[id] : "";
     },
   },
 };

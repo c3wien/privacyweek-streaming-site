@@ -31,7 +31,10 @@ export default {
     onBreak: {
       title: 'Break',
     },
-    askTheSpeaker: 'Ask a question'
+    askTheSpeaker: 'Ask a question',
+    currentWorkshops: 'Current Workshops',
+    pretalxWorkshopLink: 'View workshop on schedule page',
+    gotoWorkshop: 'To the workshop',
   },
   nextUp: {
     nextUp: 'Upcoming',

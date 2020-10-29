@@ -94,3 +94,4 @@ static/demo
 
 # ignore schedule file
 schedule.json
+static/workshops.json
