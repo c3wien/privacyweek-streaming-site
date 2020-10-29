@@ -144,13 +144,8 @@ export default {
       this.$fetch();
     }, 900000);
 
-    // make initial fetch and update workshop button
+    // make initial fetch
     this.$fetch();
-    if(this.isWorkshopNow) {
-      document.getElementById('workshopButton').classList.remove('is-hidden');
-    } else {
-      document.getElementById('workshopButton').classList.add('is-hidden');
-    }
   },
   async fetch() {
     let res = await fetch(
@@ -166,6 +161,13 @@ export default {
     this.workshopMap = await res.json();
 
     this.now = this.currentDate();
+
+    // Update workshop button
+    if(this.isWorkshopNow) {
+      document.getElementById('workshopButton').classList.remove('is-hidden');
+    } else {
+      document.getElementById('workshopButton').classList.add('is-hidden');
+    }
   },
   beforeDestroy: function () {
     clearInterval(this.updateTalkInfoIntervalId);
