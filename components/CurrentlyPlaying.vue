@@ -144,8 +144,13 @@ export default {
       this.$fetch();
     }, 900000);
 
-    // make initial fetch
+    // make initial fetch and update workshop button
     this.$fetch();
+    if(this.isWorkshopNow) {
+      document.getElementById('workshopButton').classList.remove('is-hidden');
+    } else {
+      document.getElementById('workshopButton').classList.add('is-hidden');
+    }
   },
   async fetch() {
     let res = await fetch(
