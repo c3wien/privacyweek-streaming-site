@@ -36,10 +36,8 @@
 
 <script>
 import {
-  isWithinInterval,
   addMinutes,
   addHours,
-  addDays,
   addSeconds,
 } from 'date-fns';
 import Workshop from "./Workshop";
