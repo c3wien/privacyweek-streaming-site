@@ -59,7 +59,7 @@ export default {
     presentAndFutureTalks: function () {
       if (!this.schedule) return [];
       return this.schedule.filter((talk) => {
-        return talk.endTime > this.now;
+        return talk && talk.endTime > this.now;
       });
     },
     eventHasntStartedYet: function () {
@@ -230,7 +230,7 @@ export default {
 
     prepareSchedule: function (schedule) {
       const talksByDay = schedule.conference.days.map(
-        (day) => day.rooms['Lecture Hall 1'] || day.rooms['Saal 1']
+        (day) => day.rooms['Stream 1']
       );
       const flatSchedule = [].concat(...talksByDay);
       const talks = flatSchedule.map((talk) => this.shapeTalkData(talk));
@@ -241,10 +241,10 @@ export default {
     },
     prepareWorkshops: function (schedule) {
       const workshopsByDay = schedule.conference.days.map(
-        (day) => day.rooms['Workshop'] || day.rooms['Workshopraum']
+        (day) => day.rooms['Workshop 1']
       );
       const workshops2ByDay = schedule.conference.days.map(
-        (day) => day.rooms['Workshop 2'] || day.rooms['Workshopraum 2']
+        (day) => day.rooms['Workshop 2']
       );
       const flatWorkshopScheudle = [].concat(...workshopsByDay, ...workshops2ByDay).filter(function (element) {
         return element !== undefined;
