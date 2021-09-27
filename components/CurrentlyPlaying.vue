@@ -46,7 +46,7 @@ export default {
   components: {Workshop},
   data: function () {
     return {
-      mockNow: false, // needed for debugging timing
+      mockNow: true, // needed for debugging timing
       now: this.currentDate(),
       schedule: null,
       workshops: null,
@@ -149,7 +149,7 @@ export default {
   },
   async fetch() {
     let res = await fetch(
-      'https://stream.privacyweek.at/schedule.json'
+      'http://localhost:3000/schedule.json'
     );
     res = await res.json();
     this.schedule = this.prepareSchedule(res.schedule);
@@ -180,7 +180,7 @@ export default {
       if (this.mockNow === false) {
         return new Date();
       }
-      return new Date(2020, 9, 27, 18, 30);
+      return new Date(2021, 9, 30, 15, 30);
     },
     /**
      * duration in the format "HH:mm"
