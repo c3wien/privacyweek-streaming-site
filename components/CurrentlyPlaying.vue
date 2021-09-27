@@ -149,7 +149,7 @@ export default {
   },
   async fetch() {
     let res = await fetch(
-      'http://localhost:3000/schedule.json'
+      '/schedule.json'
     );
     res = await res.json();
     this.schedule = this.prepareSchedule(res.schedule);
