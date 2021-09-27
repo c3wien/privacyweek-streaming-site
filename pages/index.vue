@@ -1,12 +1,25 @@
 <template>
-  <div class="card">
-    <div class="card-image">
-      <VideoSwitcher />
+  <div>
+    <div class="columns is-desktop">
+      <div class="column is-three-quarters-desktop">
+        <div class="card-image">
+          <VideoSwitcher />
+        </div>
+      </div>
+      <div class="column is-one-quarter-desktop">
+        <Chat />
+      </div>
     </div>
-    <div class="card-content">
-      <CurrentlyPlaying />
+    <div class="columns is-desktop">
+      <div class="card-content column is-three-quarters-desktop">
+        <div class="px-2">
+          <CurrentlyPlaying />
+        </div>
+      </div>
+      <div class="column is-one-quarter-desktop">
+        <Sidebar />
+      </div>
     </div>
-  <!-- <Colors  /> -->
   </div>
 </template>
 
