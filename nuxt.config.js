@@ -61,7 +61,7 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
     // '@nuxtjs/bulma',
-    'nuxt-i18n',
+    '@nuxtjs/i18n',
   ],
   i18n: {
     locales: [
