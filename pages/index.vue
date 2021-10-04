@@ -1,15 +1,6 @@
 <template>
   <div>
-    <div class="columns is-desktop">
-      <div class="column is-three-quarters-desktop">
-        <div class="card-image">
-          <VideoSwitcher />
-        </div>
-      </div>
-      <div class="column is-one-quarter-desktop">
-        <Chat />
-      </div>
-    </div>
+    <VideoAndChat />
     <div class="columns is-desktop">
       <div class="card-content column is-three-quarters-desktop">
         <div class="px-2">

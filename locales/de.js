@@ -44,4 +44,7 @@ export default {
     original: 'Original',
     translation: 'Übersetzung',
   },
+  chat: {
+    startChatting: "Chat beitreten",
+  }
 };
