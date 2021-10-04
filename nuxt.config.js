@@ -35,7 +35,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['bulma'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -54,8 +54,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    // '@nuxtjs/bulma',
     '@nuxtjs/i18n',
   ],
   i18n: {

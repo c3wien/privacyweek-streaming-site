@@ -23,7 +23,6 @@ export default {
 
 <style lang="scss">
 @import '~assets/scss/main.scss';
-@import '~bulma/bulma';
 
 .active {
     text-decoration: underline;

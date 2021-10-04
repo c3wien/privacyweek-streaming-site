@@ -19,7 +19,6 @@
 
 <style lang="scss">
 @import '~assets/scss/main.scss';
-@import '~bulma/bulma';
 
 body {
   overflow-x: hidden;

@@ -61,7 +61,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '~assets/scss/main.scss';
-@import '~bulma/bulma';
 
 .color-grey {
   color: $color-darkgrey;
