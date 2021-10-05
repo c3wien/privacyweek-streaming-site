@@ -46,10 +46,12 @@ export default {
    ** See https://nuxtjs.org/api/configuration-components
    */
   components: true,
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [],
+
+    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+    buildModules: [
+      // https://go.nuxtjs.dev/eslint
+      '@nuxtjs/eslint-module',
+    ],
   /*
    ** Nuxt.js modules
    */
