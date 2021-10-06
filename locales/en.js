@@ -1,6 +1,6 @@
 export default {
   main: {
-    title: 'PrivacyWeek 2020',
+    title: 'PrivacyWeek 2021',
     subTitle: 'Livestream Portal',
   },
   sidebar: {
@@ -13,7 +13,7 @@ export default {
     coffeeLink: 'Café',
     coffeeText: 'Grant yourselves a break and have a chat with other participants over a beverage.',
     feedbackLink: 'Feedback',
-    feedbackText: 'How did you like PrivacyWeek 2020? Where can we improve the event further? Here you can anonymously tell us everything that comes to mind!',
+    feedbackText: 'How did you like PrivacyWeek 2021? Where can we improve the event further? Here you can anonymously tell us everything that comes to mind!',
     vocStreamLink: 'Alternative stream',
     vocStreamText: 'You can also watch the live stream here',
     reliveLink: 'Relive',
