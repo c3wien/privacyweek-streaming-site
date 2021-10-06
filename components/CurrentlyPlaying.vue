@@ -23,12 +23,12 @@
     <NextUp v-if="upcomingTalk" v-bind="upcomingTalk" />
 
     <div v-if="isWorkshopNow">
-      <h2 class="title is-3 is-font-weight-bold pt-5" id="workshops">
+      <h2 id="workshops" class="title is-3 is-font-weight-bold pt-5">
         {{$t('currentlyPlaying.currentWorkshops')}}
       </h2>
       <hr />
       <div v-for="workshop in currentWorkshops" :key="workshop.id">
-        <Workshop v-bind="workshop" v-bind:bbbURL="getWorkshopBBBLink(workshop.id)"></Workshop>
+        <Workshop v-bind="workshop" :bbb-u-r-l="getWorkshopBBBLink(workshop.id)"></Workshop>
       </div>
     </div>
   </div>
@@ -44,9 +44,9 @@ import Workshop from "./Workshop";
 
 export default {
   components: {Workshop},
-  data: function () {
+  data () {
     return {
-      mockNow: false, // needed for debugging timing
+      mockNow: true, // needed for debugging timing
       now: this.currentDate(),
       schedule: null,
       workshops: null,
@@ -55,27 +55,49 @@ export default {
       refetchScheduleIntervalId: '',
     };
   },
+  async fetch() {
+    let res = await fetch(
+      '/schedule.json'
+    );
+    res = await res.json();
+    this.schedule = this.prepareSchedule(res.schedule);
+    this.workshops = this.prepareWorkshops(res.schedule);
+
+    res = await fetch(
+      '/workshops.json'
+    );
+    this.workshopMap = await res.json();
+
+    this.now = this.currentDate();
+
+    // Update workshop button
+    if(this.isWorkshopNow) {
+      document.getElementById('workshopButton').classList.remove('is-hidden');
+    } else {
+      document.getElementById('workshopButton').classList.add('is-hidden');
+    }
+  },
   computed: {
-    presentAndFutureTalks: function () {
+    presentAndFutureTalks () {
       if (!this.schedule) return [];
       return this.schedule.filter((talk) => {
-        return talk.endTime > this.now;
+        return talk && talk.endTime > this.now;
       });
     },
-    eventHasntStartedYet: function () {
+    eventHasntStartedYet () {
       if (!this.schedule || !this.schedule[0]) return false;
       return this.schedule[0].startTime > this.now;
     },
-    eventHasEnded: function () {
+    eventHasEnded () {
       if (!this.schedule || !this.schedule[this.schedule.length - 1])
         return false;
       const lastTalk = this.schedule[this.schedule.length - 1];
       return lastTalk.endTime < this.now;
     },
-    eventIsLive: function () {
+    eventIsLive () {
       return !this.eventHasntStartedYet && !this.eventHasEnded;
     },
-    eventHasBreak: function () {
+    eventHasBreak () {
       return (
         this.eventIsLive &&
         this.presentAndFutureTalks &&
@@ -83,7 +105,7 @@ export default {
         this.presentAndFutureTalks[0].startTime > this.now
       );
     },
-    currentTalk: function () {
+    currentTalk () {
       return this.eventIsLive &&
         !this.eventHasBreak &&
         this.presentAndFutureTalks &&
@@ -91,19 +113,19 @@ export default {
         ? this.presentAndFutureTalks[0]
         : null;
     },
-    currentWorkshops: function () {
+    currentWorkshops () {
       if (!this.workshops) return [];
       return this.workshops.filter((talk) => {
         return talk.endTime > this.now && talk.startTime < this.now;
       });
     },
-    isWorkshopNow: function () {
+    isWorkshopNow () {
       return this.currentWorkshops.length > 0;
     },
-    talkInProgress: function () {
+    talkInProgress () {
       return !!this.currentTalk;
     },
-    upcomingTalk: function () {
+    upcomingTalk () {
       if (
         this.eventIsLive &&
         this.talkInProgress &&
@@ -147,46 +169,24 @@ export default {
     // make initial fetch
     this.$fetch();
   },
-  async fetch() {
-    let res = await fetch(
-      'https://stream.privacyweek.at/schedule.json'
-    );
-    res = await res.json();
-    this.schedule = this.prepareSchedule(res.schedule);
-    this.workshops = this.prepareWorkshops(res.schedule);
-
-    res = await fetch(
-      '/workshops.json'
-    );
-    this.workshopMap = await res.json();
-
-    this.now = this.currentDate();
-
-    // Update workshop button
-    if(this.isWorkshopNow) {
-      document.getElementById('workshopButton').classList.remove('is-hidden');
-    } else {
-      document.getElementById('workshopButton').classList.add('is-hidden');
-    }
-  },
-  beforeDestroy: function () {
+  beforeDestroy () {
     clearInterval(this.updateTalkInfoIntervalId);
     clearInterval(this.refetchScheduleIntervalId);
   },
   methods: {
     // helper function that returns mocked date
     // if mocking is enabled
-    currentDate: function () {
+    currentDate () {
       if (this.mockNow === false) {
         return new Date();
       }
-      return new Date(2020, 9, 27, 18, 30);
+      return new Date(2021, 9, 30, 15, 30);
     },
     /**
      * duration in the format "HH:mm"
      * returns object { hours: number, minutes: number}
      */
-    splitDuration: function (duration) {
+    splitDuration (duration) {
       const split = duration.split(':');
       return {
         hours: split[0],
@@ -199,12 +199,12 @@ export default {
      * duration in the format {hours, minutes}
      * returns Date object
      */
-    calculateEndTime: function (startDate, duration) {
-      let endTime = addHours(startDate, duration.hours);
+    calculateEndTime (startDate, duration) {
+      const endTime = addHours(startDate, duration.hours);
       return addMinutes(endTime, duration.minutes);
     },
 
-    shapeTalkData: function (rawTalk) {
+    shapeTalkData (rawTalk) {
       if (!rawTalk) return;
       const talk = {
         id: rawTalk.id,
@@ -228,9 +228,9 @@ export default {
       return talk;
     },
 
-    prepareSchedule: function (schedule) {
+    prepareSchedule (schedule) {
       const talksByDay = schedule.conference.days.map(
-        (day) => day.rooms['Lecture Hall 1'] || day.rooms['Saal 1']
+        (day) => day.rooms['Stream 1']
       );
       const flatSchedule = [].concat(...talksByDay);
       const talks = flatSchedule.map((talk) => this.shapeTalkData(talk));
@@ -239,12 +239,12 @@ export default {
       });
       return talks;
     },
-    prepareWorkshops: function (schedule) {
+    prepareWorkshops (schedule) {
       const workshopsByDay = schedule.conference.days.map(
-        (day) => day.rooms['Workshop'] || day.rooms['Workshopraum']
+        (day) => day.rooms['Workshop 1']
       );
       const workshops2ByDay = schedule.conference.days.map(
-        (day) => day.rooms['Workshop 2'] || day.rooms['Workshopraum 2']
+        (day) => day.rooms['Workshop 2']
       );
       const flatWorkshopScheudle = [].concat(...workshopsByDay, ...workshops2ByDay).filter(function (element) {
         return element !== undefined;
@@ -255,7 +255,7 @@ export default {
       });
       return workshops;
     },
-    getWorkshopBBBLink: function (id) {
+    getWorkshopBBBLink (id) {
       return this.workshopMap[id] ? this.workshopMap[id] : "";
     },
   },

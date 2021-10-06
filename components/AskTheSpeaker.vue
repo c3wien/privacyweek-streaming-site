@@ -11,7 +11,6 @@
 
 <style lang="scss" scoped>
 @import '~assets/scss/main.scss';
-@import '~bulma/bulma';
 
 a.button.ask-a-question {
   background-color: $color-violet;

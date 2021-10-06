@@ -11,14 +11,7 @@
     </section>
     <div class="container body-content">
       <div class="language-switcher"><LanguageSwitcher /></div>
-      <div class="columns is-desktop">
-        <div class="column is-three-quarters-desktop">
-          <Nuxt />
-        </div>
-        <div class="column is-one-quarter-desktop">
-          <Sidebar />
-        </div>
-      </div>
+      <Nuxt />
     </div>
     <Footer />
   </div>
@@ -26,15 +19,7 @@
 
 <style lang="scss">
 @import '~assets/scss/main.scss';
-@import '~bulma/bulma';
 
-/* @media screen and (max-width: $tablet - 1) {
-  .column .columns {
-    padding-right: 0 !important;
-    margin-right: 0 !important;
-  }
-}
-*/
 body {
   overflow-x: hidden;
 }

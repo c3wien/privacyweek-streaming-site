@@ -5,12 +5,12 @@
      vue actually removes and adds again the video player instead of just changing props -->
     <div v-if="selectedTrack === 'translation'">
       <VideoViewer
-        livestreamUrl="https://stream.privacyweek.at/hls/trans/main_hd.m3u8"
+        livestream-url="https://stream.privacyweek.at/hls/trans/main_hd.m3u8"
       />
     </div>
     <VideoViewer
       v-else
-      livestreamUrl="https://stream.privacyweek.at/hls/orig/main_hd.m3u8"
+      livestream-url="https://stream.privacyweek.at/hls/orig/main_hd.m3u8"
     />
     <div class="button-bar mt-5">
       <div class="video-track-selection">
@@ -31,9 +31,9 @@
       </div>
 
       <a
+        id="workshopButton"
         class="button is-dark is-rounded current-workshops mr-5"
         href="#workshops"
-        id="workshopButton"
       >
         {{ $t('currentlyPlaying.currentWorkshops') }}
       </a>
@@ -51,7 +51,7 @@ export default {
     };
   },
   methods: {
-    switchTrack: function (track) {
+    switchTrack (track) {
       this.selectedTrack = track;
     },
   },

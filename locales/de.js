@@ -1,6 +1,6 @@
 export default {
   main: {
-    title: 'PrivacyWeek 2020',
+    title: 'PrivacyWeek 2021',
     subTitle: 'Livestream-Portal',
   },
   sidebar: {
@@ -13,7 +13,7 @@ export default {
     coffeeLink: 'Café',
     coffeeText: 'Gönnt euch eine Pause und plaudert bei einem Getränk mit anderen Teilnehmer:innen.',
     feedbackLink: 'Feedback',
-    feedbackText: 'Wie hat dir die PrivacyWeek 2020 gefallen, was können wir noch verbessern? Hier kannst du uns anonym alles mitteilen, was dir einfällt!',
+    feedbackText: 'Wie hat dir die PrivacyWeek 2021 gefallen, was können wir noch verbessern? Hier kannst du uns anonym alles mitteilen, was dir einfällt!',
     vocStreamLink: 'Alternativer Stream',
     vocStreamText: 'Hier kann der Livestream ebenfalls geschaut werden',
     reliveLink: 'Relive',
@@ -44,4 +44,7 @@ export default {
     original: 'Original',
     translation: 'Übersetzung',
   },
+  chat: {
+    startChatting: "Chat beitreten",
+  }
 };

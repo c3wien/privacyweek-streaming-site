@@ -22,10 +22,10 @@
       {{ description }}
     </p>
     <p class="workshop-links">
-      <a v-bind:href="pretalxLink">{{ $t('currentlyPlaying.pretalxWorkshopLink') }}</a>
+      <a :href="pretalxLink">{{ $t('currentlyPlaying.pretalxWorkshopLink') }}</a>
       <a
         class="button is-dark is-rounded goto-workshop"
-        v-bind:href="bbbURL"
+        :href="bbbURL"
       >
         {{ $t('currentlyPlaying.gotoWorkshop') }}
       </a>
@@ -49,7 +49,7 @@ export default {
     bbbURL: String
   },
   computed: {
-    timeslot: function () {
+    timeslot () {
       const startDateTime = lightFormat(this.startTime, 'HH:mm')
       const endDateTime = lightFormat(this.endTime, 'HH:mm');
 

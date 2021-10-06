@@ -30,7 +30,7 @@
       {{ description }}
     </p>
     <p>
-      <a v-bind:href="pretalxLink">{{ $t('currentlyPlaying.pretalxLink') }}</a>
+      <a :href="pretalxLink">{{ $t('currentlyPlaying.pretalxLink') }}</a>
     </p>
   </div>
 </template>
@@ -49,7 +49,7 @@ export default {
     pretalxLink: String,
   },
   computed: {
-    timeslot: function () {
+    timeslot () {
       const startDateTime = lightFormat(this.startTime, 'HH:mm');
       const endDateTime = lightFormat(this.endTime, 'HH:mm');
 
@@ -61,7 +61,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '~assets/scss/main.scss';
-@import '~bulma/bulma';
 
 .color-grey {
   color: $color-darkgrey;

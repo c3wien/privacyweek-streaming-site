@@ -11,11 +11,6 @@ export default {
     //    StreamHlsURL: '/hls/stream1.m3u8'
   },
   /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: 'universal',
-  /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
@@ -40,7 +35,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['bulma'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -51,17 +46,17 @@ export default {
    ** See https://nuxtjs.org/api/configuration-components
    */
   components: true,
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [],
+
+    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+    buildModules: [
+      // https://go.nuxtjs.dev/eslint
+      '@nuxtjs/eslint-module',
+    ],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    // '@nuxtjs/bulma',
-    'nuxt-i18n',
+    '@nuxtjs/i18n',
   ],
   i18n: {
     locales: [
@@ -72,8 +67,8 @@ export default {
     vueI18n: {
       fallbackLocale: 'de',
       messages: {
-        en: en,
-        de: de,
+        en,
+        de,
       },
     },
     strategy: 'no_prefix',

@@ -2,9 +2,9 @@
   <div>
     <div class="video-js-container">
       <video
-        class="video-js vjs-big-play-centered"
-        ref="videoRef"
         id="videojs-container"
+        ref="videoRef"
+        class="video-js vjs-big-play-centered"
         controls
         NOautoplay
         preload="auto"

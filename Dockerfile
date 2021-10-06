@@ -3,7 +3,7 @@ FROM node:10-alpine as builder
 WORKDIR /work
 COPY . .
 
-RUN yarn install && yarn generate
+RUN npm install && npm run generate
 
 FROM nginx
 COPY --from=builder /work/dist /usr/share/nginx/html

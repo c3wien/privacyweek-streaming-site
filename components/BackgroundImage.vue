@@ -13,7 +13,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  background-image: url(~assets/images/Key_Visual_PA_Strasse_RGB_oB_oT_1920.jpg);
+  background-image: url(~assets/images/pw21-datenmeer.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

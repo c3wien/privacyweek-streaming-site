@@ -1,12 +1,16 @@
 <template>
-  <div class="card">
-    <div class="card-image">
-      <VideoSwitcher />
+  <div>
+    <VideoAndChat />
+    <div class="columns is-desktop">
+      <div class="card-content column is-three-quarters-desktop">
+        <div class="px-2">
+          <CurrentlyPlaying />
+        </div>
+      </div>
+      <div class="column is-one-quarter-desktop">
+        <Sidebar />
+      </div>
     </div>
-    <div class="card-content">
-      <CurrentlyPlaying />
-    </div>
-  <!-- <Colors  /> -->
   </div>
 </template>
 
@@ -20,14 +24,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '~assets/scss/main.scss';
-@import '~bulma/bulma';
-
-@media screen and (min-width: $tablet) {
-  .card {
-    border-radius: 6px;
-  }
-}
-</style>
