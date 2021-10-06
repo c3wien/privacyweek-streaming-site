@@ -1,9 +1,9 @@
 <template>
-  <section class="box my-2">
+  <section class="box wrapper">
     <iframe
       v-if="hasConsentedToChat"
       src="https://web.libera.chat/?nick=Guest#privacyweek21"
-      class="chat"
+      class="iframe"
     ></iframe>
     <div v-else-if="isConsentAreaOpen">
       Text about consenting to chat goes here.
@@ -27,16 +27,15 @@ export default {
       type: Boolean,
       default: false,
       required: false,
-    }
+    },
   },
-  data () {
+  data() {
     return {
       hasConsentedToChat: false,
     };
   },
   methods: {
-    consentToChat () {
-      this.isConsentAreaOpen = false;
+    consentToChat() {
       this.hasConsentedToChat = true;
       this.$emit('shrink-chat');
     },
@@ -47,10 +46,21 @@ export default {
 <style lang="scss" scoped>
 @import '~assets/scss/main.scss';
 
-.chat {
+@import '~assets/scss/main.scss';
+
+.iframe {
   border: 1px solid $color-lightgrey;
   width: 100%;
   /* Default by libera.chat for the widget */
   height: 450px;
+}
+@include widescreen {
+  .wrapper {
+    height: 100%;
+  }
+
+  .iframe {
+    height: 100%;
+  }
 }
 </style>
