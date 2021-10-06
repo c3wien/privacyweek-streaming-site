@@ -1,10 +1,10 @@
 <template>
   <div>
     <button
-      v-for="locale in this.$i18n.locales"
+      v-for="locale in $i18n.locales"
+      :key="locale.code"
       class="button is-inverted is-white mb-2 my-button"
       :class="$i18n.locale === locale.code ? 'active' : ''"
-      :key="locale.code"
       @click="changeLanguage(locale.code)"
     >
       {{ locale.name }}

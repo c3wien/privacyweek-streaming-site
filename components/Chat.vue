@@ -8,12 +8,12 @@
     <div v-else-if="isConsentAreaOpen">
       Text about consenting to chat goes here.
 
-      <button @click="consentToChat" class="button is-rounded">
+      <button class="button is-rounded" @click="consentToChat">
         {{ $t('chat.startChatting') }}
       </button>
     </div>
     <div v-else>
-      <button @click="$emit('expand-chat')" class="button is-rounded">
+      <button class="button is-rounded" @click="$emit('expand-chat')">
         Chat
       </button>
     </div>
@@ -29,13 +29,13 @@ export default {
       required: false,
     }
   },
-  data: function () {
+  data () {
     return {
       hasConsentedToChat: false,
     };
   },
   methods: {
-    consentToChat: function () {
+    consentToChat () {
       this.isConsentAreaOpen = false;
       this.hasConsentedToChat = true;
       this.$emit('shrink-chat');

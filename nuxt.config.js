@@ -67,8 +67,8 @@ export default {
     vueI18n: {
       fallbackLocale: 'de',
       messages: {
-        en: en,
-        de: de,
+        en,
+        de,
       },
     },
     strategy: 'no_prefix',

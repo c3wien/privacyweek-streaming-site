@@ -7,9 +7,9 @@
     </div>
     <div :class="{column: true, 'is-3-widescreen': !isChatExpanded }">
       <Chat
-        v-on:expand-chat="isChatExpanded = true"
-        v-on:shrink-chat="isChatExpanded = false"
-        :isConsentAreaOpen="isChatExpanded"
+        :is-consent-area-open="isChatExpanded"
+        @expand-chat="isChatExpanded = true"
+        @shrink-chat="isChatExpanded = false"
       />
     </div>
   </div>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  data: function() {
+  data() {
     return {
       isChatExpanded: false
     }
