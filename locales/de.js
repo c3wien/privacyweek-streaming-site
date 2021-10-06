@@ -46,5 +46,17 @@ export default {
   },
   chat: {
     startChatting: "Chat beitreten",
+  },
+  footer: {
+    c3w: 'Chaos Computer Club Wien (C3W)',
+    mastodon: 'auf Mastodon',
+    twitter: 'auf Twitter',
+    license1: 'Dieser Inhalt ist',
+    license2: 'lizensiert.',
+    c3wDescription1: 'Der ',
+    c3wDescription2: 'Chaos Computer Club Wien (C3W) ',
+    c3wDescription3: 'ist eine Gemeinschaft von Menschen, unabhängig von Geschlecht, Alter, Religion oder Weltanschauung, sexueller Orientierung, ethnischer Zugehörigkeit sowie gesellschaftlicher Stellung, die sich grenzüberschreitend für Informationsfreiheit einsetzt, den kritischen Umgang mit elektronischen Medien sowie der Risiken und Nebenwirkungen der elektronischen Kommunikation und die Verbreitung von freien Technologien und Standards und das Wissen um diese Entwicklung fördert. Wir verstehen uns daher bei Themen mit technologischem Hintergrund als Vertreter der Zivilgesellschaft.',
+    privacyPolicy: 'Datenschutz',
+    imprint: 'Impressum',
   }
 };
