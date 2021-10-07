@@ -93,6 +93,7 @@ a.button.current-workshops {
   transition: background-color 0.3s linear;
 }
 a.button.current-workshops:hover,
+a.button.current-workshops:focus,
 a.button.current-workshops:active {
   background-color: $color-blue;
 }

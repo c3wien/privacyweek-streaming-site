@@ -18,6 +18,7 @@ a.button.ask-a-question {
   transition: background-color 0.3s linear;
 }
 a.button.ask-a-question:hover,
+a.button.ask-a-question:focus,
 a.button.ask-a-question:active {
   background-color: $color-blue;
 }

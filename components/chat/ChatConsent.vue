@@ -41,6 +41,7 @@
   transition: background-color 0.3s linear;
 }
 .is-blue:hover,
+.is-blue:focus,
 .is-blue:active {
   background-color: $color-blue;
 }

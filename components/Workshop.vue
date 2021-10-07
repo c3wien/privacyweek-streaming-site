@@ -78,6 +78,7 @@ a.button.goto-workshop {
   transition: background-color 0.3s linear;
 }
 a.button.goto-workshop:hover,
+a.button.goto-workshop:focus,
 a.button.goto-workshop:active {
   background-color: $color-blue;
 }
