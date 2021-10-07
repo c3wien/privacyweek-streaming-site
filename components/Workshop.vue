@@ -70,16 +70,16 @@ export default {
 
 .next-up {
     box-shadow: none;
-    border: 1px solid $color-violet;
+    border: 1px solid $color-blue;
 }
 a.button.goto-workshop {
-  background-color: $color-violet;
+  background-color: $color-darkblue;
   font-weight: bold;
   transition: background-color 0.3s linear;
 }
 a.button.goto-workshop:hover,
 a.button.goto-workshop:active {
-  background-color: #622e6f;
+  background-color: $color-blue;
 }
 .workshop-links {
   display: flex;

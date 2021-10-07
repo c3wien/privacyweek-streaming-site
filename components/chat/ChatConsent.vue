@@ -23,8 +23,25 @@
         </i18n>
       </ul>
     </div>
-    <button class="button is-dark is-rounded" @click="$emit('consent-to-chat')">
+    <button
+      class="button is-dark is-rounded is-blue"
+      @click="$emit('consent-to-chat')"
+    >
       {{ $t('chat.accept') }}
     </button>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@import '~assets/scss/main.scss';
+
+.is-blue {
+  background-color: $color-darkblue;
+  font-weight: bold;
+  transition: background-color 0.3s linear;
+}
+.is-blue:hover,
+.is-blue:active {
+  background-color: $color-blue;
+}
+</style>
