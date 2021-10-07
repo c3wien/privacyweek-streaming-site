@@ -5,16 +5,25 @@
       src="https://web.libera.chat/?nick=Guest#privacyweek21"
       class="iframe"
     ></iframe>
-    <div v-else-if="isConsentAreaOpen">
-      Text about consenting to chat goes here.
-
-      <button class="button is-rounded" @click="consentToChat">
-        {{ $t('chat.startChatting') }}
-      </button>
-    </div>
     <div v-else>
-      <button class="button is-rounded" @click="$emit('expand-chat')">
-        Chat
+      <h3 class="title is-4">{{ $t('chat.title') }}</h3>
+      <div class="content">
+        <p>{{ $t('chat.intro') }}</p>
+        <ul class="content">
+          <li>{{ $t('chat.public') }}</li>
+          <i18n path="chat.privacyPolicyText" tag="li">
+            <a href="">{{ $t('chat.privacyPolicy') }}</a>
+          </i18n>
+          <i18n path="chat.rulesText" tag="li">
+            <a href="">{{ $t('chat.rules') }}</a>
+          </i18n>
+          <i18n path="chat.faqText" tag="li">
+            <a href="">{{ $t('chat.faq') }}</a>
+          </i18n>
+        </ul>
+      </div>
+      <button class="button is-dark is-rounded" @click="consentToChat()">
+        {{ $t('chat.accept') }}
       </button>
     </div>
   </section>
@@ -22,13 +31,6 @@
 
 <script>
 export default {
-  props: {
-    isConsentAreaOpen: {
-      type: Boolean,
-      default: false,
-      required: false,
-    },
-  },
   data() {
     return {
       hasConsentedToChat: false,
@@ -37,7 +39,6 @@ export default {
   methods: {
     consentToChat() {
       this.hasConsentedToChat = true;
-      this.$emit('shrink-chat');
     },
   },
 };
@@ -54,6 +55,7 @@ export default {
   /* Default by libera.chat for the widget */
   height: 450px;
 }
+
 @include widescreen {
   .wrapper {
     height: 100%;

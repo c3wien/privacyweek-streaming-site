@@ -45,7 +45,16 @@ export default {
     translation: 'Translation',
   },
   chat: {
-    startChatting: "Join chat",
+    title: 'Chat',
+    intro: 'Here you can chat with other participants.',
+    public: 'Everything you write is visible in public.',
+    privacyPolicyText: 'Please read our {0}.',
+    privacyPolicy: 'Privacy Policy',
+    rulesText: 'Our {0} apply',
+    rules: 'chat rules',
+    faqText: 'Information regarding alternative ways to connect to the chat can be found in our {0}.',
+    faq: 'questions and answers',
+    accept: 'Accept and join',
   },
   footer: {
     c3w: 'Chaos Computer Club Wien (C3W)',
