@@ -46,5 +46,17 @@ export default {
   },
   chat: {
     startChatting: "Join chat",
+  },
+  footer: {
+    c3w: 'Chaos Computer Club Wien (C3W)',
+    mastodon: 'on Mastodon',
+    twitter: 'on Twitter',
+    license1: 'This content is',
+    license2: 'licensed.',
+    c3wDescription1: 'The ',
+    c3wDescription2: 'Chaos Computer Club Wien ',
+    c3wDescription3: '(C3W / Wien = Vienna) is a community of human beings, regardless of sex, gender, age, religion or worldview, sexual orientation, ethnic affiliation or social position. Across all borders, C3W is committed to freedom of information and seeks to further critical engagement with electronic media and with risks and side effects of electronical communication. C3W promotes the dissemination of free technology and standards and strives to advance public knowledge of such developments. Within this context the Chaos Computer Club aims to be a voice for civil society on issues with a technological background.',
+    privacyPolicy: 'Privacy Policy',
+    imprint: 'Imprint',
   }
 };
