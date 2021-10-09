@@ -62,6 +62,6 @@ export default {
 
 .next-up {
     box-shadow: none;
-    border: 1px solid $color-violet;
+    border: 1px solid $color-blue;
 }
 </style>

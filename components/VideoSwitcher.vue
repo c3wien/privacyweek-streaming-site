@@ -88,12 +88,13 @@ $primary-background-color: $color-darkblue;
 }
 
 a.button.current-workshops {
-  background-color: $color-violet;
+  background-color: $color-darkblue;
   font-weight: bold;
   transition: background-color 0.3s linear;
 }
 a.button.current-workshops:hover,
+a.button.current-workshops:focus,
 a.button.current-workshops:active {
-  background-color: #622e6f;
+  background-color: $color-blue;
 }
 </style>
