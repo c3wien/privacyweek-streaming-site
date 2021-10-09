@@ -21,13 +21,13 @@ The generated site will be in `/dist`. Use any webserver to serve the content of
 Build the docker image with
 
 ```bash
-$ docker build -t pw20-streaming-site:latest .
+$ docker build -t privacyweek-streaming-site:latest .
 ```
 
 Then start the image with
 
 ```bash
-$ docker run --publish 80:80 pw20-streaming-site:latest
+$ docker run --publish 80:80 privacyweek-streaming-site:latest
 ```
 
 ## Local development
