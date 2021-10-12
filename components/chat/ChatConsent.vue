@@ -17,7 +17,7 @@
           >
         </i18n>
         <i18n path="chat.faqText" tag="li">
-          <a href="https://projekte.c3w.at/pw21online_faq_publikum">{{
+          <a href="https://projekte.c3w.at/pw21online_faq_chat">{{
             $t('chat.faq')
           }}</a>
         </i18n>
