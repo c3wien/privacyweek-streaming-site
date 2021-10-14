@@ -30,7 +30,7 @@
       {{ description }}
     </p>
     <p>
-      <a :href="pretalxLink">{{ $t('currentlyPlaying.pretalxLink') }}</a>
+      <CommonLink :href="pretalxLink">{{ $t('currentlyPlaying.pretalxLink') }}</CommonLink>
     </p>
   </div>
 </template>
