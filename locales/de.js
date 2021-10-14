@@ -55,7 +55,7 @@ export default {
     public: 'Alles, was du schreibst, ist öffentlich sichtbar.',
     privacyPolicyText: 'Bitte lies unsere {0}.',
     privacyPolicy: 'Datenschutzerklärung',
-    rulesText: 'Es gelten die {0}',
+    rulesText: 'Es gelten die {0}.',
     rules: 'Chat-Regeln',
     faqText: 'Hinweise dazu, wie du dich alternativ mit dem Chat verbinden kannst, findest du in unseren {0}.',
     faq: 'Fragen und Antworten',
