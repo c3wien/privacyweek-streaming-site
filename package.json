@@ -15,12 +15,11 @@
     "@videojs/themes": "^1.0.1",
     "bulma": "^0.9.3",
     "date-fns": "^2.25.0",
+    "focus-visible": "^5.2.0",
     "nuxt": "^2.15.8",
     "video.js": "^7.15.4"
   },
   "devDependencies": {
-    "sass": "^1.42.1",
-    "sass-loader": "^10.0.2",
     "@babel/eslint-parser": "^7.14.7",
     "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
@@ -28,6 +27,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.12.1",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "sass": "^1.42.1",
+    "sass-loader": "^10.0.2"
   }
 }
