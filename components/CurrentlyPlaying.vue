@@ -152,7 +152,7 @@ export default {
       } else {
         document.getElementById('workshopButton').classList.add('is-hidden');
       }
-      if (!this.schedule && !$fetchState.pending) {
+      if (!this.schedule && !this.$fetchState.pending) {
         this.$fetch();
       }
     }, 60000);
