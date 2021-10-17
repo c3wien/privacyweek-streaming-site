@@ -30,7 +30,6 @@
       <div v-for="workshop in currentWorkshops" :key="workshop.id">
         <Workshop
           v-bind="workshop"
-          :bbb-u-r-l="getWorkshopBBBLink(workshop.id)"
         ></Workshop>
       </div>
     </div>
@@ -49,7 +48,6 @@ export default {
       now: this.currentDate(),
       schedule: null,
       workshops: null,
-      workshopMap: [],
       updateTalkInfoIntervalId: '',
       refetchScheduleIntervalId: '',
     };
@@ -59,9 +57,6 @@ export default {
     res = await res.json();
     this.schedule = this.prepareSchedule(res.schedule);
     this.workshops = this.prepareWorkshops(res.schedule);
-
-    res = await fetch('/workshops.json');
-    this.workshopMap = await res.json();
 
     this.now = this.currentDate();
 
@@ -203,6 +198,7 @@ export default {
       if (!rawTalk) return;
       const talk = {
         id: rawTalk.id,
+        slug: rawTalk.slug || '',
         title: rawTalk.title || '',
         subtitle: rawTalk.subtitle || '',
         startTime: rawTalk.date ? new Date(rawTalk.date) : null,
@@ -253,9 +249,6 @@ export default {
         return a.startTime - b.startTime;
       });
       return workshops;
-    },
-    getWorkshopBBBLink(id) {
-      return this.workshopMap[id] ? this.workshopMap[id] : '';
     },
   },
 };

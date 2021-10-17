@@ -10,6 +10,9 @@ export default {
     StreamHlsURL: '/demo/stream/demo-2018.m3u8',
     //    StreamHlsURL: '/hls/stream1.m3u8'
   },
+  publicRuntimeConfig: {
+    videoChatBaseURL: 'https://workshops.privacyweek.at/b/'
+  },
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
