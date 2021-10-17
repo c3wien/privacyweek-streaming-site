@@ -6,20 +6,20 @@
       <ul class="content">
         <li>{{ $t('chat.public') }}</li>
         <i18n path="chat.privacyPolicyText" tag="li">
-          <a href="https://privacyweek.at/datenschutz/">{{
-            $t('chat.privacyPolicy')
-          }}</a>
+          <CommonLink href="https://privacyweek.at/datenschutz/"
+            >{{ $t('chat.privacyPolicy') }}
+          </CommonLink>
         </i18n>
         <i18n path="chat.rulesText" tag="li">
-          <a
+          <CommonLink
             href="https://projekte.c3w.at/pw21online_public_nutzungsbedingungen"
-            >{{ $t('chat.rules') }}</a
-          >
+            >{{ $t('chat.rules') }}
+          </CommonLink>
         </i18n>
         <i18n path="chat.faqText" tag="li">
-          <a href="https://projekte.c3w.at/pw21online_faq_chat">{{
+          <CommonLink href="https://projekte.c3w.at/pw21online_faq_chat">{{
             $t('chat.faq')
-          }}</a>
+          }}</CommonLink>
         </i18n>
       </ul>
     </div>

@@ -50,7 +50,7 @@ export default {
     public: 'Everything you write is visible in public.',
     privacyPolicyText: 'Please read our {0}.',
     privacyPolicy: 'Privacy Policy',
-    rulesText: 'Our {0} apply',
+    rulesText: 'Our {0} apply.',
     rules: 'chat rules',
     faqText: 'Information regarding alternative ways to connect to the chat can be found in our {0}.',
     faq: 'questions and answers',

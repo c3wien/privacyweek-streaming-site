@@ -22,7 +22,7 @@
       {{ description }}
     </p>
     <p class="workshop-links">
-      <a :href="pretalxLink">{{ $t('currentlyPlaying.pretalxWorkshopLink') }}</a>
+      <CommonLink :href="pretalxLink">{{ $t('currentlyPlaying.pretalxWorkshopLink') }}</CommonLink>
       <a
         class="button is-dark is-rounded goto-workshop"
         :href="bbbURL"
