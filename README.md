@@ -43,6 +43,18 @@ $ npm run dev
 ```
 The site should be available at `localhost:3000` and should automatically reload when you make changes to the code.
 
+## Environment variables
+You can create a file named `.env` to set specific environment variables for the environment you are currently running the page from. You can use this to e.g. change the URL where the page looks for the schedule file from pretalx or to activate date and time mocking.
+
+Environment variables are available via `process.env`. We use these in `nuxt.config.js` to set certain parts of `publicRuntimeConfig`. All variables defined in `publicRuntimeConfig` are available in the code via `$config`.
+
+For a list of variables that can be set in `.env` check the `publicRuntimeConfig` in `nuxt.config.js`.
+
+### Sample .env file
+```
+SCHEDULE_LOCATION=https://fahrplan.privacyweek.at/pw21/schedule/export/schedule.json
+IS_DATE_TIME_MOCKED=true
+```
 
 ## Technologies used
 

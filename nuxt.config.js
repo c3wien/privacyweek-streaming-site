@@ -11,7 +11,18 @@ export default {
     //    StreamHlsURL: '/hls/stream1.m3u8'
   },
   publicRuntimeConfig: {
-    videoChatBaseURL: 'https://workshops.privacyweek.at/b/'
+    // location of the schedule.json from Pretalx
+    scheduleLocation: process.env.SCHEDULE_LOCATION || '/schedule.json',
+    // location of video/voice chat server where discussions and workshops take place
+    videoChatBaseURL: 'https://workshops.privacyweek.at/b/',
+    // room name under which talks are listed in schedule.json
+    talksRoomNameInPretalx: process.env.TALKS_ROOM_NAME_IN_PRETALX || 'Stream',
+    // room name under which workshops are listed in schedule.json
+    workshopsRoomNameInPretalx:
+      process.env.WORKSHOPS_ROOM_NAME_IN_PRETALX || 'Workshop',
+    // are you mocking date and time? set this to true and change the
+    // time and date to your needed values in CurrentlyPlaying.vue
+    isDateTimeMocked: process.env.IS_DATE_TIME_MOCKED || false,
   },
   /*
    ** Nuxt target
@@ -43,27 +54,22 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-    { src: '@/plugins/focus-visible.js', mode: 'client' },
-
-  ],
+  plugins: [{ src: '@/plugins/focus-visible.js', mode: 'client' }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
   components: true,
 
-    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: [
-      // https://go.nuxtjs.dev/eslint
-      '@nuxtjs/eslint-module',
-    ],
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+  ],
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    '@nuxtjs/i18n',
-  ],
+  modules: ['@nuxtjs/i18n'],
   i18n: {
     locales: [
       { code: 'en', name: 'English' },
@@ -79,7 +85,7 @@ export default {
     },
     strategy: 'no_prefix',
     detectBrowserLanguage: {
-      useCookie: false
+      useCookie: false,
     },
   },
   /*
