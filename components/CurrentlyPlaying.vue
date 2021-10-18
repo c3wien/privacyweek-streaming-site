@@ -28,9 +28,7 @@
       </h2>
       <hr />
       <div v-for="workshop in currentWorkshops" :key="workshop.id">
-        <Workshop
-          v-bind="workshop"
-        ></Workshop>
+        <Workshop v-bind="workshop"></Workshop>
       </div>
     </div>
   </div>
@@ -44,7 +42,6 @@ export default {
   components: { Workshop },
   data() {
     return {
-      mockNow: true, // needed for debugging timing
       now: this.currentDate(),
       schedule: null,
       workshops: null,
@@ -53,10 +50,16 @@ export default {
     };
   },
   async fetch() {
-    let res = await fetch('/schedule.json');
+    let res = await fetch(this.$config.scheduleLocation);
     res = await res.json();
-    this.schedule = this.prepareSchedule(res.schedule);
-    this.workshops = this.prepareWorkshops(res.schedule);
+    this.schedule = this.createSortedListOfItemsInRoom(
+      res.schedule,
+      this.$config.talksRoomNameInPretalx
+    );
+    this.workshops = this.createSortedListOfItemsInRoom(
+      res.schedule,
+      this.$config.workshopsRoomNameInPretalx
+    );
 
     this.now = this.currentDate();
 
@@ -139,7 +142,9 @@ export default {
     // force refresh talk info display every minute, so that we can switch to break and
     // next talk at the correct time. also make sure we have a schedule
     this.updateTalkInfoIntervalId = setInterval(() => {
-      this.now = this.mockNow ? addSeconds(this.now, 60) : this.currentDate();
+      this.now = this.$config.isDateTimeMocked
+        ? addSeconds(this.now, 60)
+        : this.currentDate();
 
       // Update workshop button
       if (this.isWorkshopNow) {
@@ -167,7 +172,7 @@ export default {
     // helper function that returns mocked date
     // if mocking is enabled
     currentDate() {
-      if (this.mockNow === false) {
+      if (this.$config.isDateTimeMocked === false) {
         return new Date();
       }
       return new Date(2021, 9, 30, 15, 30);
@@ -219,36 +224,16 @@ export default {
       return talk;
     },
 
-    prepareSchedule(schedule) {
-      const talksByDay = schedule.conference.days.map(
-        (day) => day.rooms['Stream 1']
-      );
-      const flatSchedule = [].concat(...talksByDay);
-      const talks = flatSchedule.map((talk) => this.shapeTalkData(talk));
-      talks.sort(function (a, b) {
+    createSortedListOfItemsInRoom(schedule, room) {
+      const itemsByDay = schedule.conference.days
+        .flatMap((day) => day.rooms[room])
+        .filter((item) => item !== undefined);
+
+      const itemsInRoom = itemsByDay.map((item) => this.shapeTalkData(item));
+      itemsInRoom.sort(function (a, b) {
         return a.startTime - b.startTime;
       });
-      return talks;
-    },
-    prepareWorkshops(schedule) {
-      const workshopsByDay = schedule.conference.days.map(
-        (day) => day.rooms['Workshop 1']
-      );
-      const workshops2ByDay = schedule.conference.days.map(
-        (day) => day.rooms['Workshop 2']
-      );
-      const flatWorkshopScheudle = []
-        .concat(...workshopsByDay, ...workshops2ByDay)
-        .filter(function (element) {
-          return element !== undefined;
-        });
-      const workshops = flatWorkshopScheudle.map((talk) =>
-        this.shapeTalkData(talk)
-      );
-      workshops.sort(function (a, b) {
-        return a.startTime - b.startTime;
-      });
-      return workshops;
+      return itemsInRoom;
     },
   },
 };
