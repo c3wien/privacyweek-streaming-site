@@ -22,11 +22,10 @@
       {{ description }}
     </p>
     <p class="workshop-links">
-      <CommonLink :href="pretalxLink">{{ $t('currentlyPlaying.pretalxWorkshopLink') }}</CommonLink>
-      <a
-        class="button is-dark is-rounded goto-workshop"
-        :href="bbbURL"
-      >
+      <CommonLink :href="pretalxLink">{{
+        $t('currentlyPlaying.pretalxWorkshopLink')
+      }}</CommonLink>
+      <a class="button is-dark is-rounded goto-workshop" :href="videoChatURL">
         {{ $t('currentlyPlaying.gotoWorkshop') }}
       </a>
     </p>
@@ -35,22 +34,51 @@
 
 <script>
 import { lightFormat } from 'date-fns';
+import createSlugForVideoChat from '~/mixins/createSlugForVideoChat.js';
+
 export default {
+  mixins: [createSlugForVideoChat],
   props: {
-    id: String,
-    title: String,
-    subtitle: String,
-    startTime: Date,
-    endTime: Date,
-    speakers: Array, // [{ id, name}]
-    abstract: String,
-    description: String,
-    pretalxLink: String,
-    bbbURL: String
+    slug: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    subtitle: {
+      type: String,
+      required: true,
+    },
+    startTime: {
+      type: Date,
+      required: true,
+    },
+    endTime: {
+      type: Date,
+      required: true,
+    },
+    speakers: {
+      type: Array, // [{ id, name}]
+      required: true,
+    },
+    abstract: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    pretalxLink: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
-    timeslot () {
-      const startDateTime = lightFormat(this.startTime, 'HH:mm')
+    timeslot() {
+      const startDateTime = lightFormat(this.startTime, 'HH:mm');
       const endDateTime = lightFormat(this.endTime, 'HH:mm');
 
       return `${startDateTime} – ${endDateTime}`;
@@ -69,8 +97,8 @@ export default {
 }
 
 .next-up {
-    box-shadow: none;
-    border: 1px solid $color-blue;
+  box-shadow: none;
+  border: 1px solid $color-blue;
 }
 a.button.goto-workshop {
   background-color: $color-darkblue;

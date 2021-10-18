@@ -10,6 +10,9 @@ export default {
     StreamHlsURL: '/demo/stream/demo-2018.m3u8',
     //    StreamHlsURL: '/hls/stream1.m3u8'
   },
+  publicRuntimeConfig: {
+    videoChatBaseURL: 'https://workshops.privacyweek.at/b/'
+  },
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -40,7 +43,10 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [
+    { src: '@/plugins/focus-visible.js', mode: 'client' },
+
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

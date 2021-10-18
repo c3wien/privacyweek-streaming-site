@@ -6,9 +6,6 @@
       >
       <AskTheSpeaker />
     </div>
-<!--     <figure class="image is-48x48">
-      <img src="~/assets/icons/winkekatze.png" alt="winkekatze" />
-    </figure> -->
     <h2 v-if="title" class="title is-3 is-font-weight-bold mt-3">
       <span>{{ title }}</span>
       <span v-if="subtitle">{{ subtitle }}</span>
@@ -30,29 +27,66 @@
       {{ description }}
     </p>
     <p>
-      <CommonLink :href="pretalxLink">{{ $t('currentlyPlaying.pretalxLink') }}</CommonLink>
+      <CommonLink :href="pretalxLink">{{
+        $t('currentlyPlaying.pretalxLink')
+      }}</CommonLink>
+    </p>
+    <p>
+      <CommonLink :href="videoChatURL">{{
+        $t('currentlyPlaying.videoChatLink')
+      }}</CommonLink>
     </p>
   </div>
 </template>
 
 <script>
 import { lightFormat } from 'date-fns';
+import createSlugForVideoChat from '~/mixins/createSlugForVideoChat.js';
+
 export default {
+  mixins: [createSlugForVideoChat],
   props: {
-    title: String,
-    subtitle: String,
-    startTime: Date,
-    endTime: Date,
-    speakers: Array, // [{ id, name}]
-    abstract: String,
-    description: String,
-    pretalxLink: String,
+    slug: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    subtitle: {
+      type: String,
+      required: true,
+    },
+    startTime: {
+      type: Date,
+      required: true,
+    },
+    endTime: {
+      type: Date,
+      required: true,
+    },
+    speakers: {
+      type: Array, // [{ id, name}]
+      required: true,
+    },
+    abstract: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    pretalxLink: {
+      type: String,
+      required: true,
+    },
   },
   computed: {
-    timeslot () {
+    timeslot() {
       const startDateTime = lightFormat(this.startTime, 'HH:mm');
       const endDateTime = lightFormat(this.endTime, 'HH:mm');
-
       return `${startDateTime} – ${endDateTime}`;
     },
   },

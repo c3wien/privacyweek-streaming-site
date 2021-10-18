@@ -1,11 +1,11 @@
 <template>
   <div class="box next-up">
     <span v-if="timeslot" class="is-size-6 color-grey"> {{ $t('nextUp.nextUp')}} | {{ timeslot }}</span>
-    <h2 v-if="title" class="title is-4 is-font-weight-bold my-3">
+    <h2 v-if="title" class="title is-4 is-font-weight-bold mt-3 mb-2">
       <span>{{ title }}</span>
       <span v-if="subtitle">{{ subtitle }}</span>
     </h2>
-    <div v-if="speakers && speakers.length > 0" class="mb-2">
+    <div v-if="speakers && speakers.length > 0" class="mb-3">
       <span
         v-for="speaker in speakers"
         :key="speaker.id"
@@ -14,12 +14,8 @@
         <span v-if="speaker.name">{{ speaker.name }}</span>
       </span>
     </div>
-    <hr />
-    <p v-if="abstract" class="block is-italic">
+    <p v-if="abstract" class="block">
       {{ abstract }}
-    </p>
-    <p v-if="description" class="block">
-      {{ description }}
     </p>
     <p>
       <CommonLink :href="pretalxLink">{{ $t('currentlyPlaying.pretalxLink') }}</CommonLink>
@@ -37,7 +33,6 @@ export default {
     endTime: Date,
     speakers: Array, // [{ id, name}]
     abstract: String,
-    description: String,
     pretalxLink: String,
   },
   computed: {
