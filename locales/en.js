@@ -27,7 +27,7 @@ export default {
     by: 'by',
     pretalxLink: 'View talk on schedule page',
     videoChatLink: 'BigBlueButton Room',
-    notStarted: 'Livestream starts on Oct 26th, 16:00 CET',
+    notStarted: 'Livestream starts on Oct 25th, 16:00 CET',
     hasEnded: 'The livestream has ended',
     onBreak: {
       title: 'Break',
