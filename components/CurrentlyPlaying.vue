@@ -127,7 +127,6 @@ export default {
       ) {
         return this.presentAndFutureTalks[1];
       } else if (
-        this.eventIsLive &&
         !this.talkInProgress &&
         this.presentAndFutureTalks &&
         this.presentAndFutureTalks[0]
