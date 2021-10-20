@@ -85,6 +85,6 @@ If you are working on code, we recommend you set up [ESLint](https://eslint.org/
 Warning: this part of the readme might be out of date.
 
 ### Local development
-Download schedule.json from `https://cfp.privacyweek.at/pw20/schedule/export/schedule.json` and place it in `static`
+Download schedule.json from `https://cfp.privacyweek.at/pw21/schedule/export/schedule.json` and place it in `static`
 ### Server deployment
 When deploying a generated build, make sure the server regularly fetches the `schedule.json` and places it in the top-most level next to `index.html`.

@@ -4,16 +4,19 @@ export default {
     subTitle: 'Livestream-Portal',
   },
   sidebar: {
-    title: 'Linksammlung',
+    resourceSection: 'Allgemeines',
+    exploreSection: 'Entdecken',
+    contactSection: 'Kontakt',
+    alternativesSection: 'Livestream',
     pwHome: 'Die Webseite der PrivacyWeek',
     scheduleLink: 'Fahrplan',
     scheduleText: 'Übersicht über alle Vorträge und Workshops',
-    bbbAfterTalkLink: 'Pausengespräche',
-    bbbAfterTalkText:
-      'Hier könnt Ihr euch mit den Vortragenden nach den Talks austauschen.',
-    coffeeLink: 'Café',
-    coffeeText:
-      'Gönnt euch eine Pause und plaudert bei einem Getränk mit anderen Teilnehmer:innen.',
+    donateLink: 'Spenden',
+    donateText: 'Unterstütze die PrivacyWeek mit deiner Spende',
+    workAdventureLink: '2D Welt',
+    workAdventureText: 'Erkunde unsere virtuelle 2D Welt',
+    artLink: 'Kunst',
+    artText: 'Besuche die Ausstellung',
     feedbackLink: 'Feedback',
     feedbackText:
       'Wie hat dir die PrivacyWeek 2021 gefallen, was können wir noch verbessern? Hier kannst du uns anonym alles mitteilen, was dir einfällt!',
