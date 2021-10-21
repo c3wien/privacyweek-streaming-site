@@ -61,6 +61,8 @@ export default {
     faqText: 'Information regarding alternative ways to connect to the chat can be found in our {0}.',
     faq: 'questions and answers',
     accept: 'Accept and join',
+    openChat: 'Open chat',
+    closeChat: 'Close chat'
   },
   footer: {
     c3w: 'Chaos Computer Club Wien (C3W)',
