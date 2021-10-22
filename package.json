@@ -15,7 +15,6 @@
     "@videojs/themes": "^1.0.1",
     "bulma": "^0.9.3",
     "date-fns": "^2.25.0",
-    "focus-visible": "^5.2.0",
     "nuxt": "^2.15.8",
     "video.js": "^7.15.4"
   },
