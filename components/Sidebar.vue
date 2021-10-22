@@ -38,7 +38,9 @@
 
       <div class="block">
         <h4 class="title is-5 mb-1">
-          <CommonLink href="">{{ $t('sidebar.artLink') }}</CommonLink>
+          <CommonLink href="https://privacyweek.at/art/">{{
+            $t('sidebar.artLink')
+          }}</CommonLink>
         </h4>
         <p>{{ $t('sidebar.artText') }}</p>
       </div>
