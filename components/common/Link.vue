@@ -6,7 +6,10 @@
 <script>
 export default {
   props: {
-    href: String,
+    href: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
@@ -21,8 +24,11 @@ export default {
 .link:focus {
   text-decoration: underline;
 }
-.link:focus-visible {
+.link:focus {
   outline: 2px solid $color-accessible-turquoise;
   outline-offset: 3px;
+}
+.link:focus:not(:focus-visible) {
+  outline: none;
 }
 </style>
