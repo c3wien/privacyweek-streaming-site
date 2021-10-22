@@ -13,6 +13,8 @@ export default {
     scheduleText: 'Übersicht über alle Vorträge und Workshops',
     donateLink: 'Spenden',
     donateText: 'Unterstütze die PrivacyWeek mit deiner Spende',
+    merchLink: 'Merch',
+    merchText: 'Hier gibt es Shirts, Zip Hoodies und Taschen im PrivacyWeek-Design',
     workAdventureLink: '2D Welt',
     workAdventureText: 'Erkunde unsere virtuelle 2D Welt',
     artLink: 'Kunst',

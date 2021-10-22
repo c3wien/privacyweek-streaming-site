@@ -75,6 +75,15 @@
 
       <div class="block">
         <h4 class="title is-5 mb-1">
+          <CommonLink href="https://greentees.at/c3w-privacyweek/">{{
+            $t('sidebar.merchLink')
+          }}</CommonLink>
+        </h4>
+        <p>{{ $t('sidebar.merchText') }}</p>
+      </div>
+
+      <div class="block">
+        <h4 class="title is-5 mb-1">
           <CommonLink href="https://privacyweek.at/feedback">{{
             $t('sidebar.feedbackLink')
           }}</CommonLink>

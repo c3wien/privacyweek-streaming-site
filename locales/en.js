@@ -13,6 +13,8 @@ export default {
     scheduleText: 'List of all talks and workshops',
     donateLink: 'Donate',
     donateText: 'Support PrivacyWeek with a donation',
+    merchLink: 'Merch',
+    merchText: 'Here you can buy PrivacyWeek shirts, zip hoodies and bags',
     workAdventureLink: '2D World',
     workAdventureText: 'Explore our virtual 2D world',
     artLink: 'Art Exhibit',
