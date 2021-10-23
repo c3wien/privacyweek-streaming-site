@@ -95,3 +95,6 @@ static/demo
 # ignore schedule file
 schedule.json
 static/workshops.json
+
+# ignore update file
+update.sh
