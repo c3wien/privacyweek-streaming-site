@@ -7,9 +7,6 @@
       <TalkInfo v-bind="currentTalk" />
     </div>
     <div v-else class="content">
-      <div class="flex-container">
-        <AskTheSpeaker />
-      </div>
       <h2 class="title is-3 is-font-weight-bold mt-3">
         <span v-if="eventHasntStartedYet">{{
           $t('currentlyPlaying.notStarted')
@@ -35,56 +32,31 @@
 </template>
 
 <script>
-import { addMinutes, addHours, addSeconds } from 'date-fns';
+import { addMinutes, addHours } from 'date-fns';
 import Workshop from './Workshop';
 
 export default {
   components: { Workshop },
-  data() {
-    return {
-      now: this.currentDate(),
-      schedule: null,
-      workshops: null,
-      updateTalkInfoIntervalId: '',
-      refetchScheduleIntervalId: '',
-    };
-  },
-  async fetch() {
-    let res = await fetch(this.$config.scheduleLocation);
-    res = await res.json();
-    this.schedule = this.createSortedListOfItemsInRoom(
-      res.schedule,
-      this.$config.talksRoomNameInPretalx
-    );
-    this.workshops = this.createSortedListOfItemsInRoom(
-      res.schedule,
-      this.$config.workshopsRoomNameInPretalx
-    );
-
-    this.now = this.currentDate();
-
-    // Update workshop button
-    if (this.isWorkshopNow) {
-      document.getElementById('workshopButton').classList.remove('is-hidden');
-    } else {
-      document.getElementById('workshopButton').classList.add('is-hidden');
-    }
+  props: {
+    talks: Array,
+    workshops: Array,
+    now: Date,
   },
   computed: {
     presentAndFutureTalks() {
-      if (!this.schedule) return [];
-      return this.schedule.filter((talk) => {
+      if (!this.talks) return [];
+      return this.talks.filter((talk) => {
         return talk && talk.endTime > this.now;
       });
     },
     eventHasntStartedYet() {
-      if (!this.schedule || !this.schedule[0]) return false;
-      return this.schedule[0].startTime > this.now;
+      if (!this.talks || !this.talks[0]) return false;
+      return this.talks[0].startTime > this.now;
     },
     eventHasEnded() {
-      if (!this.schedule || !this.schedule[this.schedule.length - 1])
+      if (!this.talks || !this.talks[this.talks.length - 1])
         return false;
-      const lastTalk = this.schedule[this.schedule.length - 1];
+      const lastTalk = this.talks[this.talks.length - 1];
       return lastTalk.endTime < this.now;
     },
     eventIsLive() {
@@ -137,36 +109,6 @@ export default {
       }
     },
   },
-  mounted() {
-    // force refresh talk info display every minute, so that we can switch to break and
-    // next talk at the correct time. also make sure we have a schedule
-    this.updateTalkInfoIntervalId = setInterval(() => {
-      this.now = this.$config.isDateTimeMocked
-        ? addSeconds(this.now, 60)
-        : this.currentDate();
-
-      // Update workshop button
-      if (this.isWorkshopNow) {
-        document.getElementById('workshopButton').classList.remove('is-hidden');
-      } else {
-        document.getElementById('workshopButton').classList.add('is-hidden');
-      }
-      if (!this.schedule && !this.$fetchState.pending) {
-        this.$fetch();
-      }
-    }, 60000);
-    // refetch schedule every 15 minute in case something changed
-    this.refetchScheduleIntervalId = setInterval(() => {
-      this.$fetch();
-    }, 900000);
-
-    // make initial fetch
-    this.$fetch();
-  },
-  beforeDestroy() {
-    clearInterval(this.updateTalkInfoIntervalId);
-    clearInterval(this.refetchScheduleIntervalId);
-  },
   methods: {
     // helper function that returns mocked date
     // if mocking is enabled
@@ -174,7 +116,7 @@ export default {
       if (this.$config.isDateTimeMocked === false) {
         return new Date();
       }
-      return new Date(2021, 9, 30, 15, 30);
+      return new Date(2021, 9, 30, 14, 70);
     },
     /**
      * duration in the format "HH:mm"

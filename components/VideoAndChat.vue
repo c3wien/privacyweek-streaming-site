@@ -2,7 +2,7 @@
   <div class="columns is-desktop">
     <div class="column is-9-widescreen" >
       <div class="card-image">
-        <VideoSwitcher />
+        <VideoAndActionButtons :talks="talks" :workshops="workshops" :now="now" />
       </div>
     </div>
     <div class="column is-3-widescreen">
@@ -10,6 +10,16 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    talks: Array,
+    workshops: Array,
+    now: Date,
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 @import '~assets/scss/main.scss';

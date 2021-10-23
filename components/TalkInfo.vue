@@ -4,7 +4,6 @@
       <span v-if="timeslot" class="is-size-6 color-grey">
         LIVE | {{ timeslot }}</span
       >
-      <AskTheSpeaker />
     </div>
     <h2 v-if="title" class="title is-3 is-font-weight-bold mt-3">
       <span>{{ title }}</span>
@@ -29,11 +28,6 @@
     <p>
       <CommonLink :href="pretalxLink">{{
         $t('currentlyPlaying.pretalxLink')
-      }}</CommonLink>
-    </p>
-    <p>
-      <CommonLink :href="videoChatURL">{{
-        $t('currentlyPlaying.videoChatLink')
       }}</CommonLink>
     </p>
   </div>

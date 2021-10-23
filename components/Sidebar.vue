@@ -38,14 +38,18 @@
 
       <div class="block">
         <h4 class="title is-5 mb-1">
-          <CommonLink href="">{{ $t('sidebar.artLink') }}</CommonLink>
+          <CommonLink href="https://privacyweek.at/art/">{{
+            $t('sidebar.artLink')
+          }}</CommonLink>
         </h4>
         <p>{{ $t('sidebar.artText') }}</p>
       </div>
 
       <div class="block">
         <h4 class="title is-5 mb-1">
-          <CommonLink href="">{{ $t('sidebar.workAdventureLink') }}</CommonLink>
+          <CommonLink href="https://world.privacyweek.at/">{{
+            $t('sidebar.workAdventureLink')
+          }}</CommonLink>
         </h4>
         <p>{{ $t('sidebar.workAdventureText') }}</p>
       </div>
@@ -71,6 +75,15 @@
           }}</CommonLink>
         </h4>
         <p>{{ $t('sidebar.donateText') }}</p>
+      </div>
+
+      <div class="block">
+        <h4 class="title is-5 mb-1">
+          <CommonLink href="https://greentees.at/c3w-privacyweek/">{{
+            $t('sidebar.merchLink')
+          }}</CommonLink>
+        </h4>
+        <p>{{ $t('sidebar.merchText') }}</p>
       </div>
 
       <div class="block">

@@ -29,14 +29,19 @@
           {{ $t('videoPlayer.translation') }}
         </button>
       </div>
-
-      <a
-        id="workshopButton"
-        class="button is-dark is-rounded current-workshops mr-5"
-        href="#workshops"
-      >
-        {{ $t('currentlyPlaying.currentWorkshops') }}
-      </a>
+      <div class="interaction-buttons m-2">
+        <a
+          class="button is-rounded is-dark is-blue m-1"
+          href="https://privacyweek.at/fragen"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ $t('currentlyPlaying.askTheSpeaker') }}
+        </a>
+        <a :href="videoChatURL" class="button is-rounded is-dark is-blue m-1">{{
+          $t('currentlyPlaying.talkToSpeaker')
+        }}</a>
+      </div>
     </div>
   </div>
 </template>
@@ -44,14 +49,41 @@
 
 <script>
 import 'video.js';
+import { addMinutes } from 'date-fns';
+// provides computed videoChatURL
+import createSlugForVideoChat from '~/mixins/createSlugForVideoChat.js';
+
 export default {
+  mixins: [createSlugForVideoChat],
+  props: {
+    talks: Array,
+    workshops: Array,
+    now: Date,
+  },
   data() {
     return {
       selectedTrack: 'original',
     };
   },
+  computed: {
+    // in the first 15min of a talk, the link should still link to the previous talk's room, so that
+    // people still have a chance to join it e.g. in case there was no break between the talks.
+    // this only works if there are no talks shorter than 15min, otherwise it needs to be changed
+    talkDiscussedInVideoChat() {
+      if (!this.talks) return null;
+      const pastAndPresentTalks = this.talks.filter(
+        (talk) => talk && addMinutes(talk.startTime, 15) < this.now
+      );
+      return pastAndPresentTalks[pastAndPresentTalks.length - 1];
+    },
+    slug() {
+      return this.talkDiscussedInVideoChat && this.talkDiscussedInVideoChat.slug
+        ? this.talkDiscussedInVideoChat.slug
+        : '';
+    },
+  },
   methods: {
-    switchTrack (track) {
+    switchTrack(track) {
       this.selectedTrack = track;
     },
   },
@@ -87,14 +119,21 @@ $primary-background-color: $color-darkblue;
   }
 }
 
-a.button.current-workshops {
+.interaction-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+a.button.is-blue {
   background-color: $color-darkblue;
   font-weight: bold;
   transition: background-color 0.3s linear;
 }
-a.button.current-workshops:hover,
-a.button.current-workshops:focus,
-a.button.current-workshops:active {
+a.button.is-blue:hover,
+a.button.is-blue:focus,
+a.button.is-blue:active {
   background-color: $color-blue;
 }
 </style>

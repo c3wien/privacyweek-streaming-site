@@ -15,6 +15,8 @@ export default {
     scheduleLocation: process.env.SCHEDULE_LOCATION || '/schedule.json',
     // location of video/voice chat server where discussions and workshops take place
     videoChatBaseURL: 'https://workshops.privacyweek.at/b/',
+    // location of chat client that will be embedded
+    chatClientURL: process.env.CHAT_CLIENT_URL || 'https://chat.privacyweek.wien/',
     // room name under which talks are listed in schedule.json
     talksRoomNameInPretalx: process.env.TALKS_ROOM_NAME_IN_PRETALX || 'Stream',
     // room name under which workshops are listed in schedule.json
@@ -54,7 +56,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [{ src: '@/plugins/focus-visible.js', mode: 'client' }],
+  plugins: [],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -72,8 +74,8 @@ export default {
   modules: ['@nuxtjs/i18n'],
   i18n: {
     locales: [
-      { code: 'en', name: 'English' },
-      { code: 'de', name: 'Deutsch' },
+      { code: 'de', name: 'Deutsch', iso: 'de-AT' },
+      { code: 'en', name: 'English', iso: 'en-US' },
     ],
     defaultLocale: 'de',
     vueI18n: {
@@ -84,9 +86,7 @@ export default {
       },
     },
     strategy: 'no_prefix',
-    detectBrowserLanguage: {
-      useCookie: false,
-    },
+    detectBrowserLanguage: false,
   },
   /*
    ** Build configuration
