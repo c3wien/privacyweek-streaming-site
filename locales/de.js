@@ -42,6 +42,7 @@ export default {
     onBreak: {
       title: 'Pause',
     },
+    talkToSpeaker: 'Pausengespräch beitreten',
     askTheSpeaker: 'Eine Frage stellen',
     currentWorkshops: 'Aktuelle Workshops',
     pretalxWorkshopLink: 'Workshop im Fahrplan ansehen',

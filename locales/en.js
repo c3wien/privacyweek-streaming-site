@@ -39,6 +39,7 @@ export default {
     onBreak: {
       title: 'Break',
     },
+    talkToSpeaker: 'Join speaker discussion',
     askTheSpeaker: 'Ask a question',
     currentWorkshops: 'Current Workshops',
     pretalxWorkshopLink: 'View workshop on schedule page',
