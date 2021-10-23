@@ -72,8 +72,8 @@ export default {
   modules: ['@nuxtjs/i18n'],
   i18n: {
     locales: [
-      { code: 'en', name: 'English' },
-      { code: 'de', name: 'Deutsch' },
+      { code: 'de', name: 'Deutsch', iso: 'de-AT' },
+      { code: 'en', name: 'English', iso: 'en-US' },
     ],
     defaultLocale: 'de',
     vueI18n: {
@@ -84,9 +84,7 @@ export default {
       },
     },
     strategy: 'no_prefix',
-    detectBrowserLanguage: {
-      useCookie: false,
-    },
+    detectBrowserLanguage: false,
   },
   /*
    ** Build configuration

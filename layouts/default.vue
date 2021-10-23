@@ -17,6 +17,24 @@
   </div>
 </template>
 
+<script>
+export default {
+  head() {
+    const locale = this.$i18n.locale;
+    let localeIso = this.$i18n.locales.find(
+      (item) => item.code === locale
+    );
+    localeIso = localeIso && localeIso.iso ? localeIso.iso : 'de-AT';
+    return {
+      htmlAttrs: {
+        lang: localeIso,
+      },
+    };
+  },
+};
+</script>
+
+
 <style lang="scss">
 @import '~assets/scss/main.scss';
 
