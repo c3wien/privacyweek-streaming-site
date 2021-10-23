@@ -15,6 +15,8 @@ export default {
     scheduleLocation: process.env.SCHEDULE_LOCATION || '/schedule.json',
     // location of video/voice chat server where discussions and workshops take place
     videoChatBaseURL: 'https://workshops.privacyweek.at/b/',
+    // location of chat client that will be embedded
+    chatClientURL: process.env.CHAT_CLIENT_URL || 'https://chat.privacyweek.wien/',
     // room name under which talks are listed in schedule.json
     talksRoomNameInPretalx: process.env.TALKS_ROOM_NAME_IN_PRETALX || 'Stream',
     // room name under which workshops are listed in schedule.json

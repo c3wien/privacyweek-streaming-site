@@ -1,7 +1,7 @@
 <template>
   <iframe
-    src="https://web.libera.chat/?nick=Guest#privacyweek21"
     class="iframe"
+    :src="$config.chatClientURL"
   ></iframe>
 </template>
 
