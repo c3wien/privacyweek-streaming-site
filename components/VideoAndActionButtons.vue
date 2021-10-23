@@ -38,7 +38,7 @@
         >
           {{ $t('currentlyPlaying.askTheSpeaker') }}
         </a>
-        <a :href="videoChatURL" class="button is-rounded is-dark is-blue m-1">{{
+        <a v-if="talkDiscussedInVideoChat" :href="videoChatURL" class="button is-rounded is-dark is-blue m-1">{{
           $t('currentlyPlaying.talkToSpeaker')
         }}</a>
       </div>
@@ -74,6 +74,9 @@ export default {
       const pastAndPresentTalks = this.talks.filter(
         (talk) => talk && addMinutes(talk.startTime, 15) < this.now
       );
+      if (pastAndPresentTalks.length === 0) {
+        return null;
+      }
       return pastAndPresentTalks[pastAndPresentTalks.length - 1];
     },
     slug() {

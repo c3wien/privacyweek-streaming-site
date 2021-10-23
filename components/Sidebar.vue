@@ -22,7 +22,7 @@
 
       <div class="block">
         <h4 class="title is-5 mb-1">
-          <CommonLink href="https://projekte.c3w.at/pw20online_faq_publikum">{{
+          <CommonLink href="https://projekte.c3w.at/pw21online_faq_publikum">{{
             $t('sidebar.qaLink')
           }}</CommonLink>
         </h4>
