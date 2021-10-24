@@ -1,5 +1,13 @@
 <template>
-  <a class="link" :href="href">
+  <NuxtLink
+    v-if="isNuxtLink"
+    class="link"
+    :class="additionalClasses"
+    :to="href"
+  >
+    <slot></slot>
+  </NuxtLink>
+  <a v-else class="link" :class="additionalClasses" :href="href">
     <slot></slot>
   </a>
 </template>
@@ -9,6 +17,16 @@ export default {
     href: {
       type: String,
       required: true,
+    },
+    isNuxtLink: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    additionalClasses: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
 };

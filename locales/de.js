@@ -23,6 +23,8 @@ export default {
     workAdventureText: 'Erkunde unsere virtuelle 2D Welt',
     artLink: 'Kunst',
     artText: 'Besuche die Ausstellung',
+    artStreamLink: 'Däténméér',
+    artStreamText: 'Audiovisuelle Kunst-Installation im Livestream',
     feedbackLink: 'Feedback',
     feedbackText:
       'Wie hat dir die PrivacyWeek 2021 gefallen, was können wir noch verbessern? Hier kannst du uns anonym alles mitteilen, was dir einfällt!',
@@ -96,5 +98,9 @@ export default {
     contributionsLink: 'GitHub',
     privacyPolicy: 'Datenschutz',
     imprint: 'Impressum',
+  },
+  artStream: {
+    back: 'Zurück zur Startseite',
+    by: 'von'
   },
 };

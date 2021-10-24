@@ -22,8 +22,11 @@ export default {
     workAdventureText: 'Explore our virtual 2D world',
     artLink: 'Art Exhibit',
     artText: 'Explore the art exhibits submitted by artists',
+    artStreamLink: 'Däténméér',
+    artStreamText: 'Audiovisual art installation livestream',
     feedbackLink: 'Feedback',
-    feedbackText: 'How did you like PrivacyWeek 2021? Where can we improve the event further? Here you can anonymously tell us everything that comes to mind!',
+    feedbackText:
+      'How did you like PrivacyWeek 2021? Where can we improve the event further? Here you can anonymously tell us everything that comes to mind!',
     vocStreamLink: 'Alternative stream',
     vocStreamText: 'You can also watch the live stream here',
     reliveLink: 'Relive',
@@ -31,7 +34,8 @@ export default {
     qaLink: 'F.A.Q.',
     qaText: 'Read answers to frequent questions about the PrivacyWeek',
     infodeskLink: 'Info Desk',
-    infodeskText: 'You have a question we didn\'t answer in this Page or our FAQ? Please visit our virtual Infodesk and talk to a person.',
+    infodeskText:
+      "You have a question we didn't answer in this Page or our FAQ? Please visit our virtual Infodesk and talk to a person.",
   },
   currentlyPlaying: {
     by: 'by',
@@ -64,11 +68,12 @@ export default {
     privacyPolicy: 'Privacy Policy',
     rulesText: 'Our {0} apply.',
     rules: 'chat rules',
-    faqText: 'Information regarding alternative ways to connect to the chat can be found in our {0}.',
+    faqText:
+      'Information regarding alternative ways to connect to the chat can be found in our {0}.',
     faq: 'questions and answers',
     accept: 'Accept and join',
     openChat: 'Open chat',
-    closeChat: 'Close chat'
+    closeChat: 'Close chat',
   },
   footer: {
     socialsTitle: 'C3W links',
@@ -80,13 +85,20 @@ export default {
     aboutC3W: 'About C3W',
     c3wDescription1: 'The ',
     c3wDescription2: 'Chaos Computer Club Wien ',
-    c3wDescription3: '(C3W / Wien = Vienna) is a community of human beings, regardless of sex, gender, age, religion or worldview, sexual orientation, ethnic affiliation or social position. Across all borders, C3W is committed to freedom of information and seeks to further critical engagement with electronic media and with risks and side effects of electronical communication. C3W promotes the dissemination of free technology and standards and strives to advance public knowledge of such developments. Within this context the Chaos Computer Club aims to be a voice for civil society on issues with a technological background.',
+    c3wDescription3:
+      '(C3W / Wien = Vienna) is a community of human beings, regardless of sex, gender, age, religion or worldview, sexual orientation, ethnic affiliation or social position. Across all borders, C3W is committed to freedom of information and seeks to further critical engagement with electronic media and with risks and side effects of electronical communication. C3W promotes the dissemination of free technology and standards and strives to advance public knowledge of such developments. Within this context the Chaos Computer Club aims to be a voice for civil society on issues with a technological background.',
     accessibilityTitle: 'Accessibility',
-    accessibilityText: 'We try to improve the accessibility of this page. If you run into accessibility issues while using this site, you can contact us at {0} or open an issue on {1}.',
+    accessibilityText:
+      'We try to improve the accessibility of this page. If you run into accessibility issues while using this site, you can contact us at {0} or open an issue on {1}.',
     contributionsTitle: 'Bugs and contributions',
-    contributionsText: 'If you found a bug or have an idea for improvements, send us a pull request or open an issue on {0}.',
+    contributionsText:
+      'If you found a bug or have an idea for improvements, send us a pull request or open an issue on {0}.',
     contributionsLink: 'GitHub',
     privacyPolicy: 'Privacy Policy',
     imprint: 'Imprint',
-  }
+  },
+  artStream: {
+    back: 'Back to start page',
+    by: 'by',
+  },
 };

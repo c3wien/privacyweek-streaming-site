@@ -47,6 +47,15 @@
 
       <div class="block">
         <h4 class="title is-5 mb-1">
+          <CommonLink is-nuxt-link href="/datenmeer-stream">{{
+            $t('sidebar.artStreamLink')
+          }}</CommonLink>
+        </h4>
+        <p>{{ $t('sidebar.artStreamText') }}</p>
+      </div>
+
+      <div class="block">
+        <h4 class="title is-5 mb-1">
           <CommonLink href="https://world.privacyweek.at/">{{
             $t('sidebar.workAdventureLink')
           }}</CommonLink>
