@@ -1,4 +1,3 @@
-// This component allows users to switch between the original and the translated stream
 <template>
   <div>
     <!-- Note: this wrapping div is needed so that the if/else-rendered elements differ in structure and so
@@ -14,20 +13,29 @@
     />
     <div class="button-bar mt-5">
       <div class="video-track-selection">
-        <button
-          class="button ml-5 is-light is-rounded is-medium"
-          :class="selectedTrack === 'original' ? 'active' : 'not-active'"
-          @click="switchTrack('original')"
-        >
-          {{ $t('videoPlayer.original') }}
-        </button>
-        <button
-          class="button is-light is-rounded is-medium"
-          :class="selectedTrack === 'translation' ? 'active' : 'not-active'"
-          @click="switchTrack('translation')"
-        >
-          {{ $t('videoPlayer.translation') }}
-        </button>
+        <div class="field">
+          <label for="audioTrackSelection" class="label">
+            {{ $t('videoPlayer.selectTrack') }}</label
+          >
+          <div class="control has-icons-left">
+            <span class="select">
+              <select id="audioTrackSelection" v-model="selectedTrack" class="track-select">
+                <option value="original">
+                  {{ $t('videoPlayer.original') }}
+                </option>
+                <option value="translation">
+                  {{ $t('videoPlayer.translation') }}
+                </option>
+              </select>
+            </span>
+            <span class="icon is-left">
+              <img
+                src="~/assets/icons/fontawesome/language-solid.svg"
+                class="ml-2"
+              />
+            </span>
+          </div>
+        </div>
       </div>
       <div class="interaction-buttons m-2">
         <CommonLinkThatLooksLikeButton
@@ -111,20 +119,8 @@ $primary-background-color: $color-darkblue;
   justify-content: space-between;
 }
 
-.video-track-selection {
-  .active {
-    font-weight: bold;
-  }
-  .not-active {
-    color: $color-darkgrey;
-  }
-  > button {
-    text-decoration: none !important;
-  }
-
-  > *:first-child {
-    margin-right: 1rem;
-  }
+.control.has-icons-left .input, .control.has-icons-left .select select.track-select {
+  padding-left: 3em;
 }
 
 .interaction-buttons {
