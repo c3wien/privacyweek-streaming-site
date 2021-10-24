@@ -25,9 +25,12 @@
       <CommonLink :href="pretalxLink">{{
         $t('currentlyPlaying.pretalxWorkshopLink')
       }}</CommonLink>
-      <a class="button is-dark is-rounded goto-workshop" :href="videoChatURL">
+      <CommonLinkThatLooksLikeButton
+        :href="videoChatURL"
+        opens-in-new-tab
+      >
         {{ $t('currentlyPlaying.gotoWorkshop') }}
-      </a>
+      </CommonLinkThatLooksLikeButton>
     </p>
   </div>
 </template>
@@ -100,16 +103,7 @@ export default {
   box-shadow: none;
   border: 1px solid $color-blue;
 }
-a.button.goto-workshop {
-  background-color: $color-darkblue;
-  font-weight: bold;
-  transition: background-color 0.3s linear;
-}
-a.button.goto-workshop:hover,
-a.button.goto-workshop:focus,
-a.button.goto-workshop:active {
-  background-color: $color-blue;
-}
+
 .workshop-links {
   display: flex;
   align-items: center;

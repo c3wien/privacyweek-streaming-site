@@ -1,0 +1,2 @@
+
+The icons in this directory are taken from [Font Awesome](https://fontawesome.com/). They are licensed under [this license](https://fontawesome.com/license/free). If you modify an icon, write a comment in that file stating what you changed. This is needed to comply with their license.

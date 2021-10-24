@@ -3,6 +3,9 @@ export default {
     title: 'PrivacyWeek 2021',
     subTitle: 'Livestream Portal',
   },
+  general: {
+    opensInNewTab: 'Opens in a new tab',
+  },
   sidebar: {
     resourceSection: 'General',
     exploreSection: 'Explore',
