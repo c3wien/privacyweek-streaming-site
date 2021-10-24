@@ -61,7 +61,7 @@
 
       <div class="block">
         <h4 class="title is-5 mb-1">
-          <CommonLink href="https://privacyweek.at/infodesk">{{
+          <CommonLink href="https://workshops.privacyweek.at/b/info">{{
             $t('sidebar.infodeskLink')
           }}</CommonLink>
         </h4>
