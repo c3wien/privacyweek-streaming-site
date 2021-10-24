@@ -28,7 +28,4 @@ export default {
   outline: 2px solid $color-accessible-turquoise;
   outline-offset: 3px;
 }
-.link:focus:not(:focus-visible) {
-  outline: none;
-}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="columns is-desktop">
     <div class="column is-9-widescreen" >
-      <div class="card-image">
+      <div class="">
         <VideoAndActionButtons :talks="talks" :workshops="workshops" :now="now" />
       </div>
     </div>

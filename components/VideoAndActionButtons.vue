@@ -30,17 +30,22 @@
         </button>
       </div>
       <div class="interaction-buttons m-2">
-        <a
-          class="button is-rounded is-dark is-blue m-1"
+        <CommonLinkThatLooksLikeButton
           href="https://privacyweek.at/fragen"
-          target="_blank"
-          rel="noopener"
+          opens-in-new-tab
+          additional-classes="m-1"
         >
           {{ $t('currentlyPlaying.askTheSpeaker') }}
-        </a>
-        <a v-if="talkDiscussedInVideoChat" :href="videoChatURL" class="button is-rounded is-dark is-blue m-1">{{
-          $t('currentlyPlaying.talkToSpeaker')
-        }}</a>
+        </CommonLinkThatLooksLikeButton>
+        <CommonLinkThatLooksLikeButton
+          v-if="talkDiscussedInVideoChat"
+          :href="videoChatURL"
+          additional-classes="m-1"
+          opens-in-new-tab
+          >{{
+            $t('currentlyPlaying.talkToSpeaker')
+          }}</CommonLinkThatLooksLikeButton
+        >
       </div>
     </div>
   </div>
@@ -127,16 +132,5 @@ $primary-background-color: $color-darkblue;
   flex-flow: row wrap;
   justify-content: flex-end;
   align-items: center;
-}
-
-a.button.is-blue {
-  background-color: $color-darkblue;
-  font-weight: bold;
-  transition: background-color 0.3s linear;
-}
-a.button.is-blue:hover,
-a.button.is-blue:focus,
-a.button.is-blue:active {
-  background-color: $color-blue;
 }
 </style>
