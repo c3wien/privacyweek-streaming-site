@@ -19,7 +19,11 @@
           >
           <div class="control has-icons-left">
             <span class="select">
-              <select id="audioTrackSelection" v-model="selectedTrack" class="track-select">
+              <select
+                id="audioTrackSelection"
+                v-model="selectedTrack"
+                class="track-select"
+              >
                 <option value="original">
                   {{ $t('videoPlayer.original') }}
                 </option>
@@ -37,18 +41,18 @@
           </div>
         </div>
       </div>
-      <div class="interaction-buttons m-2">
+      <div class="interaction-buttons">
         <CommonLinkThatLooksLikeButton
           href="https://privacyweek.at/fragen"
           opens-in-new-tab
-          additional-classes="m-1"
+          additional-classes="mr-1 interaction-button"
         >
           {{ $t('currentlyPlaying.askTheSpeaker') }}
         </CommonLinkThatLooksLikeButton>
         <CommonLinkThatLooksLikeButton
           v-if="talkDiscussedInVideoChat"
           :href="videoChatURL"
-          additional-classes="m-1"
+          additional-classes="interaction-button"
           opens-in-new-tab
           >{{
             $t('currentlyPlaying.talkToSpeaker')
@@ -113,20 +117,37 @@ $big-play-button--width: 4.5em;
 $primary-foreground-color: #fff;
 $primary-background-color: $color-darkblue;
 
-.button-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.control.has-icons-left .input, .control.has-icons-left .select select.track-select {
+.control.has-icons-left .input,
+.control.has-icons-left .select select.track-select {
   padding-left: 3em;
 }
+@include mobile {
+  .button-bar {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .video-track-selection {
+    margin-bottom: 1rem;
+  }
+  .interaction-button {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+}
 
-.interaction-buttons {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  align-items: center;
+@include tablet {
+  .button-bar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .interaction-buttons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
 }
 </style>
