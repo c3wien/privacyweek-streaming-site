@@ -101,6 +101,7 @@ export default {
   },
   artStream: {
     back: 'Zurück zur Startseite',
+    flashingLights: 'Vorsicht: Kann schnell blinkende Lichter enthalten.',
     by: 'von'
   },
 };

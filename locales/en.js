@@ -99,6 +99,7 @@ export default {
   },
   artStream: {
     back: 'Back to start page',
+    flashingLights: 'Warning: May contain flashing lights.',
     by: 'by',
   },
 };

@@ -1,9 +1,13 @@
 <template>
   <div>
-    <NuxtLink to="/" class="button is-rounded back mb-2">{{
-      $t('artStream.back')
-    }}</NuxtLink>
-
+    <div class="above-video mb-2">
+      <NuxtLink to="/" class="button is-rounded back">{{
+        $t('artStream.back')
+      }}</NuxtLink>
+      <article class="message is-warning">
+        <div class="message-body warning">{{ $t('artStream.flashingLights') }}</div>
+      </article>
+    </div>
     <VideoViewer
       livestream-url="https://stream.privacyweek.at/hls/datasea/kunst.m3u8"
     />
@@ -21,6 +25,18 @@
 
 <style lang="scss" scoped>
 @import '~assets/scss/main.scss';
+
+.above-video {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.message-body.warning {
+  padding: 0.5em 1.5em
+}
+
 .back {
   font-weight: bold;
   transition: background-color 0.3s linear;
