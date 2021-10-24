@@ -1,4 +1,3 @@
-// This component allows users to switch between the original and the translated stream
 <template>
   <div>
     <!-- Note: this wrapping div is needed so that the if/else-rendered elements differ in structure and so
@@ -14,33 +13,46 @@
     />
     <div class="button-bar mt-5">
       <div class="video-track-selection">
-        <button
-          class="button ml-5 is-light is-rounded is-medium"
-          :class="selectedTrack === 'original' ? 'active' : 'not-active'"
-          @click="switchTrack('original')"
-        >
-          {{ $t('videoPlayer.original') }}
-        </button>
-        <button
-          class="button is-light is-rounded is-medium"
-          :class="selectedTrack === 'translation' ? 'active' : 'not-active'"
-          @click="switchTrack('translation')"
-        >
-          {{ $t('videoPlayer.translation') }}
-        </button>
+        <div class="field">
+          <label for="audioTrackSelection" class="label">
+            {{ $t('videoPlayer.selectTrack') }}</label
+          >
+          <div class="control has-icons-left">
+            <span class="select">
+              <select
+                id="audioTrackSelection"
+                v-model="selectedTrack"
+                class="track-select"
+              >
+                <option value="original">
+                  {{ $t('videoPlayer.original') }}
+                </option>
+                <option value="translation">
+                  {{ $t('videoPlayer.translation') }}
+                </option>
+              </select>
+            </span>
+            <span class="icon is-left">
+              <img
+                src="~/assets/icons/fontawesome/language-solid.svg"
+                class="ml-2"
+              />
+            </span>
+          </div>
+        </div>
       </div>
-      <div class="interaction-buttons m-2">
+      <div class="interaction-buttons">
         <CommonLinkThatLooksLikeButton
           href="https://privacyweek.at/fragen"
           opens-in-new-tab
-          additional-classes="m-1"
+          additional-classes="mr-1 interaction-button"
         >
           {{ $t('currentlyPlaying.askTheSpeaker') }}
         </CommonLinkThatLooksLikeButton>
         <CommonLinkThatLooksLikeButton
           v-if="talkDiscussedInVideoChat"
           :href="videoChatURL"
-          additional-classes="m-1"
+          additional-classes="interaction-button"
           opens-in-new-tab
           >{{
             $t('currentlyPlaying.talkToSpeaker')
@@ -105,32 +117,37 @@ $big-play-button--width: 4.5em;
 $primary-foreground-color: #fff;
 $primary-background-color: $color-darkblue;
 
-.button-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.control.has-icons-left .input,
+.control.has-icons-left .select select.track-select {
+  padding-left: 3em;
 }
-
-.video-track-selection {
-  .active {
-    font-weight: bold;
+@include mobile {
+  .button-bar {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
-  .not-active {
-    color: $color-darkgrey;
+  .video-track-selection {
+    margin-bottom: 1rem;
   }
-  > button {
-    text-decoration: none !important;
-  }
-
-  > *:first-child {
-    margin-right: 1rem;
+  .interaction-button {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
   }
 }
 
-.interaction-buttons {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  align-items: center;
+@include tablet {
+  .button-bar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .interaction-buttons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
 }
 </style>

@@ -56,7 +56,7 @@ export default {
     nextUp: 'Nächster Beitrag',
   },
   videoPlayer: {
-    selectTrack: 'Track:',
+    selectTrack: 'Stream-Audio (Sprache)',
     original: 'Original',
     translation: 'Übersetzung',
   },

@@ -52,7 +52,7 @@ export default {
     nextUp: 'Upcoming',
   },
   videoPlayer: {
-    selectTrack: 'Track:',
+    selectTrack: 'Stream audio (language)',
     original: 'Original',
     translation: 'Translation',
   },
