@@ -4,8 +4,12 @@
     <section class="hero">
       <div class="hero-body pb-2">
         <div class="container">
-          <h1 class="title is-1 has-text-white">{{ $t('main.title') }}</h1>
-          <h2 class="subtitle has-text-white">{{ $t('main.subTitle') }}</h2>
+          <div class="page-title">
+            <NuxtLink class="pw-link" to="/">
+              <h1 class="title is-1 has-text-white">{{ $t('main.title') }}</h1>
+              <h2 class="subtitle has-text-white">{{ $t('main.subTitle') }}</h2>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </section>
@@ -21,9 +25,7 @@
 export default {
   head() {
     const locale = this.$i18n.locale;
-    let localeIso = this.$i18n.locales.find(
-      (item) => item.code === locale
-    );
+    let localeIso = this.$i18n.locales.find((item) => item.code === locale);
     localeIso = localeIso && localeIso.iso ? localeIso.iso : 'de-AT';
     return {
       htmlAttrs: {
@@ -45,6 +47,19 @@ body {
 .language-switcher {
   display: flex;
   flex-flow: row-reverse wrap;
+}
+
+.page-title {
+  display: inline-block;
+}
+
+.pw-link:focus,
+.pw-link:hover,
+.pw-link:active {
+  background-color: $color-almost-white;
+}
+.pw-link:focus {
+  outline: 1px solid $color-turquoise;
 }
 
 @media screen and (min-width: $tablet) and (max-width: $desktop) {
