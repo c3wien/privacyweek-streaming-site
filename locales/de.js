@@ -92,6 +92,9 @@ export default {
     accessibilityTitle: 'Barrierefreiheit',
     accessibilityText:
       'Wir versuchen, Barrieren auf dieser Seite zu reduzieren. Wenn du bei der Benutzung Barrieren antrifft, kannst du uns gerne unter {0} schreiben oder auf {1} ein Issue anlegen.',
+    chatAccessibilityText:
+      'Leider hat der Chat einige Barrieren. Du kannst dich jedoch statt den Chat über diese Seite zu nutzen, mit einem IRC- oder Matrix-Client deiner Wahl mit dem Chat verbinden. Siehe {0}.',
+    chatFAQLink: 'Chat Fragen und Antworten',
     contributionsTitle: 'Bugs und Contributions',
     contributionsText:
       'Wenn du einen Fehler findest oder einen Verbesserungsvorschlag hast,  schicke uns einen Pull Request oder erstelle ein Issue auf {0}.',
@@ -102,6 +105,6 @@ export default {
   artStream: {
     back: 'Zurück zur Startseite',
     flashingLights: 'Vorsicht: Kann schnell blinkende Lichter enthalten.',
-    by: 'von'
+    by: 'von',
   },
 };
