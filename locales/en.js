@@ -90,6 +90,9 @@ export default {
     accessibilityTitle: 'Accessibility',
     accessibilityText:
       'We try to improve the accessibility of this page. If you run into accessibility issues while using this site, you can contact us at {0} or open an issue on {1}.',
+    chatAccessibilityText:
+      'Unfortunately the chat has some accessibility issues. Instead of using the chat on this page, you can connect to the chat via a Matrix or IRC client of your choice. For details see {0}.',
+    chatFAQLink: 'chat questions and answers',
     contributionsTitle: 'Bugs and contributions',
     contributionsText:
       'If you found a bug or have an idea for improvements, send us a pull request or open an issue on {0}.',

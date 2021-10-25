@@ -12,9 +12,18 @@
                 >accessibility@privacyweek.at
               </CommonLink>
               <CommonLink
-                opens-in-new-tab
                 href="https://github.com/c3wien/privacyweek-streaming-site/issues"
                 >{{ $t('footer.contributionsLink') }}
+              </CommonLink>
+            </i18n>
+            <i18n path="footer.chatAccessibilityText" tag="p">
+              <CommonLink
+                :href="
+                  $i18n.locale === 'en'
+                    ? 'https://projekte.c3w.at/pw21online_faq_chat_eng'
+                    : 'https://projekte.c3w.at/pw21online_faq_chat'
+                "
+                >{{ $t('footer.chatFAQLink') }}
               </CommonLink>
             </i18n>
             <h3 class="title is-5 mb-3">
@@ -22,7 +31,6 @@
             </h3>
             <i18n path="footer.contributionsText" tag="p">
               <CommonLink
-                opens-in-new-tab
                 href="https://github.com/c3wien/privacyweek-streaming-site/"
                 >{{ $t('footer.contributionsLink') }}
               </CommonLink>

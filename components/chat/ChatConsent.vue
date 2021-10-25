@@ -17,7 +17,7 @@
           </CommonLink>
         </i18n>
         <i18n path="chat.faqText" tag="li">
-          <CommonLink href="https://projekte.c3w.at/pw21online_faq_chat">{{
+          <CommonLink :href="chatFAQLink">{{
             $t('chat.faq')
           }}</CommonLink>
         </i18n>
@@ -31,6 +31,19 @@
     </button>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    chatFAQLink() {
+      const locale = this.$i18n.locale;
+      return locale === 'en'
+        ? 'https://projekte.c3w.at/pw21online_faq_chat_eng'
+        : 'https://projekte.c3w.at/pw21online_faq_chat';
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 @import '~assets/scss/main.scss';
