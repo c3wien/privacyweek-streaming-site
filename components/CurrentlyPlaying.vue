@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { addMinutes, addHours } from 'date-fns';
 import Workshop from './Workshop';
 
 export default {
@@ -107,74 +106,6 @@ export default {
       } else {
         return null;
       }
-    },
-  },
-  methods: {
-    // helper function that returns mocked date
-    // if mocking is enabled
-    currentDate() {
-      if (this.$config.isDateTimeMocked === false) {
-        return new Date();
-      }
-      return new Date(2021, 9, 30, 14, 70);
-    },
-    /**
-     * duration in the format "HH:mm"
-     * returns object { hours: number, minutes: number}
-     */
-    splitDuration(duration) {
-      const split = duration.split(':');
-      return {
-        hours: split[0],
-        minutes: split[1],
-      };
-    },
-
-    /**
-     * startDate - Date object
-     * duration in the format {hours, minutes}
-     * returns Date object
-     */
-    calculateEndTime(startDate, duration) {
-      const endTime = addHours(startDate, duration.hours);
-      return addMinutes(endTime, duration.minutes);
-    },
-
-    shapeTalkData(rawTalk) {
-      if (!rawTalk) return;
-      const talk = {
-        id: rawTalk.id,
-        slug: rawTalk.slug || '',
-        title: rawTalk.title || '',
-        subtitle: rawTalk.subtitle || '',
-        startTime: rawTalk.date ? new Date(rawTalk.date) : null,
-        duration: rawTalk.duration
-          ? this.splitDuration(rawTalk.duration)
-          : null,
-        speakers: rawTalk.persons
-          ? rawTalk.persons.map((person) => ({
-              id: person.id || 0,
-              name: person.public_name || '',
-            }))
-          : null,
-        abstract: rawTalk.abstract || '',
-        description: rawTalk.description || '',
-        pretalxLink: rawTalk.url || '',
-      };
-      talk.endTime = this.calculateEndTime(talk.startTime, talk.duration);
-      return talk;
-    },
-
-    createSortedListOfItemsInRoom(schedule, room) {
-      const itemsByDay = schedule.conference.days
-        .flatMap((day) => day.rooms[room])
-        .filter((item) => item !== undefined);
-
-      const itemsInRoom = itemsByDay.map((item) => this.shapeTalkData(item));
-      itemsInRoom.sort(function (a, b) {
-        return a.startTime - b.startTime;
-      });
-      return itemsInRoom;
     },
   },
 };
