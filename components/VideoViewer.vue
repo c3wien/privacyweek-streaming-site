@@ -8,7 +8,7 @@
         controls
         NOautoplay
         preload="auto"
-        poster="/stream-images/stream_poster.jpg"
+        :poster="streamImage"
         data-setup="{}"
       >
         <source :src="livestreamUrl" type="application/x-mpegURL" />
@@ -30,6 +30,11 @@ import videojs from 'video.js';
 export default {
   props: {
     livestreamUrl: String,
+    streamImage: {
+      type: String,
+      required: false,
+      default: '/stream-images/stream_poster.jpg'
+    }
   },
   data() {
     return {
