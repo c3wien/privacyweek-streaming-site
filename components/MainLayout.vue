@@ -1,6 +1,11 @@
 <template>
   <div>
-    <VideoAndChat :talks="talks" :workshops="workshops" :now="now" />
+    <VideoAndChat
+      :talks="talks"
+      :workshops="workshops"
+      :now="now"
+      :current-talk="currentTalk"
+    />
     <div class="columns is-desktop">
       <div class="card-content column is-three-quarters-desktop">
         <div class="px-2">
