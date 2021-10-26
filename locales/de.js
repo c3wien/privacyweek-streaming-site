@@ -106,5 +106,14 @@ export default {
     back: 'Zurück zur Startseite',
     flashingLights: 'Vorsicht: Kann schnell blinkende Lichter enthalten.',
     by: 'von',
+    description1: 'Generative Installation',
+    description2: 'Ode an die frühen Jahre der Heimcomputerszene',
+    description3:
+      'Inhalte aus der Schatztruhe des Künstlers aus den frühen Jahren der Demoszene deren Mitglied er ist',
+    description4:
+      'Basierend auf der RC3-Kunstinstallation, wo für die Aufnahme der Demoscene als UNESCO Welterbe geworben wurde.',
+    description5:
+      'Mittlerweile wurde die Demoscene als UNESCO Kulturerbe in Deutschland anerkannt.',
+    description6: 'Danke an alle beteiligten Demoscener!',
   },
 };

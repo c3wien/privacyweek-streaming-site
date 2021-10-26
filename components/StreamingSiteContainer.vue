@@ -59,7 +59,10 @@ export default {
       if (this.$config.isDateTimeMocked === false) {
         return new Date();
       }
-      return new Date(2021, 9, 30, 14, 80);
+      const mockedDate = new Date(2021, 9, 30, 13, 15);
+      // eslint-disable-next-line no-console
+      console.log('mocked date and time is ', mockedDate);
+      return mockedDate;
     },
     /**
      * duration in the format "HH:mm"

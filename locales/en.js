@@ -104,5 +104,14 @@ export default {
     back: 'Back to start page',
     flashingLights: 'Warning: May contain flashing lights.',
     by: 'by',
+    description1: 'Generative Installation',
+    description2: 'Ode to the early Years of Homecomputerscene',
+    description3:
+      'Content out of the treasure chest of the Demoscene Artist from the early Years of the Demoscene',
+    description4:
+      'Based on the RC3-Artinstallation, which promoted the Demoscene as UNESCO World Heritage.',
+    description5:
+      'Meanwhile the Demoscene is accepted as UNESCO Cultural Heritage in Germany.',
+    description6: 'Thanks to all involved Demosceners worldwide!',
   },
 };

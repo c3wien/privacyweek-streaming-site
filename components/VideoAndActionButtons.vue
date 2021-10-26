@@ -66,7 +66,7 @@
 
 <script>
 import 'video.js';
-import { addMinutes } from 'date-fns';
+import { differenceInMinutes } from 'date-fns';
 // provides computed videoChatURL
 import createSlugForVideoChat from '~/mixins/createSlugForVideoChat.js';
 
@@ -76,6 +76,11 @@ export default {
     talks: Array,
     workshops: Array,
     now: Date,
+    currentTalk: {
+      type: Object,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -83,18 +88,31 @@ export default {
     };
   },
   computed: {
-    // in the first 15min of a talk, the link should still link to the previous talk's room, so that
-    // people still have a chance to join it e.g. in case there was no break between the talks.
-    // this only works if there are no talks shorter than 15min, otherwise it needs to be changed
-    talkDiscussedInVideoChat() {
-      if (!this.talks) return null;
-      const pastAndPresentTalks = this.talks.filter(
-        (talk) => talk && addMinutes(talk.startTime, 15) < this.now
-      );
-      if (pastAndPresentTalks.length === 0) {
+    previousTalk() {
+      if (!this.talks) {
         return null;
       }
-      return pastAndPresentTalks[pastAndPresentTalks.length - 1];
+      const pastTalks = this.talks.filter((talk) => talk.endTime < this.now);
+      if (pastTalks.length === 0) {
+        return null;
+      }
+      return pastTalks[pastTalks.length - 1];
+    },
+    talkDiscussedInVideoChat() {
+      if (
+        this.currentTalk &&
+        Math.abs(differenceInMinutes(this.currentTalk.startTime, this.now)) >=
+          15
+      ) {
+        return this.currentTalk;
+      } else if (
+        this.previousTalk &&
+        Math.abs(differenceInMinutes(this.previousTalk.endTime, this.now)) < 15
+      ) {
+        return this.previousTalk;
+      } else {
+        return null;
+      }
     },
     slug() {
       return this.talkDiscussedInVideoChat && this.talkDiscussedInVideoChat.slug

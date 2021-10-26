@@ -1,8 +1,13 @@
 <template>
   <div class="columns is-desktop">
-    <div class="column is-9-widescreen" >
+    <div class="column is-9-widescreen">
       <div class="">
-        <VideoAndActionButtons :talks="talks" :workshops="workshops" :now="now" />
+        <VideoAndActionButtons
+          :talks="talks"
+          :workshops="workshops"
+          :now="now"
+          :current-talk="currentTalk"
+        />
       </div>
     </div>
     <div class="column is-3-widescreen">
@@ -17,8 +22,13 @@ export default {
     talks: Array,
     workshops: Array,
     now: Date,
+    currentTalk: {
+      type: Object,
+      required: false,
+      default: null,
+    },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
