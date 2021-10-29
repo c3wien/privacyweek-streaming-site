@@ -1,5 +1,12 @@
 <template>
   <div>
+    <WorkshopBanner
+      v-if="isWorkshopNow || isAWorkshopUpcoming"
+      :is-workshop-now="isWorkshopNow"
+      :is-a-workshop-upcoming="isAWorkshopUpcoming"
+      :current-workshops="currentWorkshops"
+      :workshops-that-start-soon="workshopsThatStartSoon"
+    />/
     <VideoAndChat
       :talks="talks"
       :workshops="workshops"
@@ -21,6 +28,8 @@
             :current-talk="currentTalk"
             :current-workshops="currentWorkshops"
             :is-workshop-now="isWorkshopNow"
+            :workshops-that-start-soon="workshopsThatStartSoon"
+            :is-a-workshop-upcoming="isAWorkshopUpcoming"
             :talk-in-progress="talkInProgress"
             :upcoming-talk="upcomingTalk"
           />
@@ -33,6 +42,7 @@
   </div>
 </template>
 <script>
+import addMinutes from 'date-fns/addMinutes';
 export default {
   props: {
     talks: Array,
@@ -77,11 +87,23 @@ export default {
     currentWorkshops() {
       if (!this.workshops) return [];
       return this.workshops.filter((talk) => {
-        return talk.endTime > this.now && talk.startTime < this.now;
+        return talk.endTime > this.now && talk.startTime <= this.now;
+      });
+    },
+    workshopsThatStartSoon() {
+      if (!this.workshops) return [];
+      return this.workshops.filter((workshop) => {
+        return (
+          workshop.startTime > workshop.now &&
+          workshop.startTime < addMinutes(this.now, 30)
+        );
       });
     },
     isWorkshopNow() {
       return this.currentWorkshops.length > 0;
+    },
+    isAWorkshopUpcoming() {
+      return this.workshopsThatStartSoon.length > 0;
     },
     talkInProgress() {
       return !!this.currentTalk;
