@@ -94,7 +94,7 @@ export default {
       if (!this.workshops) return [];
       return this.workshops.filter((workshop) => {
         return (
-          workshop.startTime > workshop.now &&
+          workshop.startTime > this.now &&
           workshop.startTime < addMinutes(this.now, 30)
         );
       });
