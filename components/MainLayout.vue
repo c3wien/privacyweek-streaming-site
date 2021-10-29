@@ -6,7 +6,7 @@
       :is-a-workshop-upcoming="isAWorkshopUpcoming"
       :current-workshops="currentWorkshops"
       :workshops-that-start-soon="workshopsThatStartSoon"
-    />/
+    />
     <VideoAndChat
       :talks="talks"
       :workshops="workshops"
