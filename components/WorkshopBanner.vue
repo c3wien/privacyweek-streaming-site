@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper mb-2">
     <article class="message is-link">
       <div v-if="isWorkshopNow" class="message-body">
         <i18n path="workshopBanner.live" tag="div">
@@ -62,9 +62,6 @@ export default {
   .wrapper {
     margin-left: 1.25rem;
     margin-right: 1.25rem;
-  }
-  .message {
-    font-weight: bold;
   }
 }
 </style>
