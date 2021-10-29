@@ -8,7 +8,7 @@
           </CommonLink>
         </i18n>
       </div>
-      <div v-else-if="isAWorkshopUpcoming">
+      <div v-else-if="isAWorkshopUpcoming" class="message-body">
         <i18n path="workshopBanner.upcoming" tag="div">
           <CommonLink href="#workshops">
             {{ upcomingWorkshopTitle }}
