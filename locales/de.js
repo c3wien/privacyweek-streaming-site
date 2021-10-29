@@ -54,6 +54,10 @@ export default {
     pretalxWorkshopLink: 'Workshop im Fahrplan ansehen',
     gotoWorkshop: 'Zum Workshop',
   },
+  workshopBanner: {
+    upcoming: 'Gleich beginnt ein Workshop: {0}',
+    live: 'Workshop findet jetzt statt: {0}',
+  },
   nextUp: {
     nextUp: 'Nächster Beitrag',
   },

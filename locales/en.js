@@ -52,6 +52,10 @@ export default {
     pretalxWorkshopLink: 'View workshop on schedule page',
     gotoWorkshop: 'To the workshop',
   },
+  workshopBanner: {
+    upcoming: 'Workshop starting soon: {0}',
+    live: 'Workshop live now: {0}',
+  },
   nextUp: {
     nextUp: 'Upcoming',
   },
