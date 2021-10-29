@@ -19,12 +19,12 @@
     </div>
     <NextUp v-if="upcomingTalk" v-bind="upcomingTalk" />
 
-    <div v-if="isWorkshopNow">
+    <div v-if="isWorkshopNow || isAWorkshopUpcoming">
       <h2 id="workshops" class="title is-3 is-font-weight-bold pt-5">
         {{ $t('currentlyPlaying.currentWorkshops') }}
       </h2>
       <hr />
-      <div v-for="workshop in currentWorkshops" :key="workshop.id">
+      <div v-for="workshop in currentAndUpcomingWorkshops" :key="workshop.id">
         <Workshop v-bind="workshop"></Workshop>
       </div>
     </div>
@@ -58,11 +58,24 @@ export default {
       required: true,
     },
     isWorkshopNow: Boolean,
+    workshopsThatStartSoon: {
+      type: Array,
+      required: true,
+    },
+    isAWorkshopUpcoming: {
+      type: Boolean,
+      required: true,
+    },
     talkInProgress: Boolean,
     upcomingTalk: {
       type: Object,
       required: false,
       default: null,
+    },
+  },
+  computed: {
+    currentAndUpcomingWorkshops() {
+      return [...this.currentWorkshops, ...this.workshopsThatStartSoon];
     },
   },
 };
